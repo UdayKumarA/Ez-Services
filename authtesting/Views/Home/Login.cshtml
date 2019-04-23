@@ -1,0 +1,70 @@
+﻿<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WebApiTest</title>
+</head>
+<body>
+    <div>
+        @*<form enctype="multipart/form-data" method="post"  id="ajaxUploadForm" novalidate="novalidate">*@
+
+        <fieldset>
+            <legend>Login Form</legend>
+            <ol>
+                <li>
+                    <label>UserName </label>
+                    <input type="text" style="width:317px" name="name" id="username">
+                </li>
+                <li>
+                    <label>Password </label>
+                    <input type="text" style="width:317px" name="password" id="password">
+                </li>
+                <li>
+                    <input type="button" value="Login" id="ajaxUploadButton" class="btn">
+                </li>
+            </ol>
+        </fieldset>
+        @*</form>*@
+    </div>
+</body>
+</html>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ajaxUploadButton").click(function () {
+
+            var formdata = new FormData();
+            //var usr = JSON.stringify($("#username").val());
+            //console.log(usr);
+            formdata.append("UserName", $("#username").val());
+            formdata.append("Password", $("#password").val());
+            $.ajax({
+                url: "/Home/get",
+                cache: false,
+                processData: false,
+               contentType: false,
+                //contentType: 'application/json; charset=UTF-8',
+                type: "POST",
+                data: formdata,
+                success: function (data) {
+                    //for (var i = 0; i < data.length; i++) {
+                    //    $("<tr><td>" + data[i].Name + "</td><td>" + data[i].Course + "</td><td>" + data[i].City + "</td></tr>").appendTo("#students");
+                    //}
+                    if (data == "success") {
+                        window.location.href = "https://layla.amazon.com/api/skill/link/M1GHT7STGD5XPV";
+                    }
+                    else {
+                        alert("Failed");
+                    }
+
+                },
+                error: function (msg) {
+                    console.log(msg);
+
+                    alert(msg);
+                }
+            });
+
+        });
+    });
+</script>
+

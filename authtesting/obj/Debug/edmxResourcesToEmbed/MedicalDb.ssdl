@@ -1,0 +1,549 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MedicalDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MedicalDB.dbo.CityMaster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CityMaster">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CityName" Type="varchar" MaxLength="50" />
+    <Property Name="StateId" Type="int" />
+  </EntityType>
+  <EntityType Name="CountryMaster">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DepartmentDoctor">
+    <Key>
+      <PropertyRef Name="DepartmentDoctorAutoId" />
+    </Key>
+    <Property Name="DepartmentDoctorAutoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoctorId" Type="int" />
+    <Property Name="DepartmentId" Type="int" />
+  </EntityType>
+  <EntityType Name="DepartmentMaster">
+    <Key>
+      <PropertyRef Name="DepartmentAutoId" />
+    </Key>
+    <Property Name="DepartmentAutoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'MedicalDB.dbo.DeptTable' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="DeptTable">
+          <Property Name="DeptId" Type="int" />
+          <Property Name="DeptName" Type="varchar" MaxLength="50" />
+          <Property Name="DeptLocation" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+  <EntityType Name="DoctorMaster">
+    <Key>
+      <PropertyRef Name="DoctorAutoId" />
+    </Key>
+    <Property Name="DoctorAutoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoctorLName" Type="varchar" MaxLength="25" />
+    <Property Name="DoctorFName" Type="varchar" MaxLength="25" />
+    <Property Name="DoctorNPI" Type="varchar" MaxLength="10" />
+    <Property Name="DoctorStreetAddress" Type="varchar" MaxLength="50" />
+    <Property Name="DoctorAddressLine2" Type="varchar" MaxLength="50" />
+    <Property Name="DoctorCity" Type="varchar" MaxLength="25" />
+    <Property Name="DoctorState" Type="int" />
+    <Property Name="DoctorCountry" Type="int" />
+    <Property Name="DoctorZipCode" Type="varchar" MaxLength="5" />
+    <Property Name="DoctorWorkPhone" Type="varchar" MaxLength="10" />
+    <Property Name="DoctorHomePhone" Type="varchar" MaxLength="10" />
+    <Property Name="DoctorMobilePhone" Type="varchar" MaxLength="10" />
+    <Property Name="DoctorEmail" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'MedicalDB.dbo.EmpTable' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="EmpTable">
+          <Property Name="EmpId" Type="int" />
+          <Property Name="EmpName" Type="varchar" MaxLength="50" />
+          <Property Name="JobName" Type="varchar" MaxLength="20" />
+          <Property Name="ManagerNo" Type="int" />
+          <Property Name="HireDate" Type="datetime" />
+          <Property Name="Salary" Type="numeric" Precision="7" Scale="2" />
+          <Property Name="Commision" Type="numeric" Precision="7" Scale="2" />
+          <Property Name="DeptNo" Type="int" />
+        </EntityType>-->
+  <EntityType Name="FacilityDoctor">
+    <Key>
+      <PropertyRef Name="FacilityDoctorAutoId" />
+    </Key>
+    <Property Name="FacilityDoctorAutoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoctorId" Type="int" Nullable="false" />
+    <Property Name="FacilityId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FacilityMaster">
+    <Key>
+      <PropertyRef Name="FacilityAutoId" />
+    </Key>
+    <Property Name="FacilityAutoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FacilityName" Type="nchar" MaxLength="50" />
+    <Property Name="FStreetAdress" Type="nchar" MaxLength="100" />
+    <Property Name="FAdressLine2" Type="nchar" MaxLength="100" />
+    <Property Name="FCity" Type="nchar" MaxLength="50" />
+    <Property Name="FCountryID" Type="int" />
+    <Property Name="FStateID" Type="int" />
+  </EntityType>
+  <EntityType Name="FacilityUserProfiles">
+    <Key>
+      <PropertyRef Name="FacilityUserId" />
+    </Key>
+    <Property Name="FacilityUserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FacilityUserName" Type="varchar" MaxLength="50" />
+    <Property Name="FacilityPassWord" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FeedBackMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="FacilityName" Type="varchar" MaxLength="50" />
+    <Property Name="Message" Type="varchar" MaxLength="50" />
+    <Property Name="DateAdded" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PersonLinq">
+    <Key>
+      <PropertyRef Name="PersonAutoID" />
+    </Key>
+    <Property Name="PersonAutoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonName" Type="varchar" MaxLength="50" />
+    <Property Name="PersonAge" Type="int" />
+    <Property Name="PersonJob" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PersonMaster">
+    <Key>
+      <PropertyRef Name="PersonAutoID" />
+    </Key>
+    <Property Name="PersonAutoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonLName" Type="varchar" MaxLength="25" />
+    <Property Name="PersonFName" Type="varchar" MaxLength="25" />
+    <Property Name="Gender" Type="bit" />
+    <Property Name="DateofBirth" Type="date" />
+    <Property Name="EmergencyContactFName" Type="varchar" MaxLength="25" />
+    <Property Name="EmergencyContactLName" Type="varchar" MaxLength="25" />
+    <Property Name="Relationship" Type="varchar" MaxLength="25" />
+    <Property Name="StreetAddress" Type="varchar" MaxLength="100" />
+    <Property Name="AddressLine2" Type="varchar" MaxLength="100" />
+    <Property Name="City" Type="varchar" MaxLength="25" />
+    <Property Name="StateID" Type="varchar" MaxLength="25" />
+    <Property Name="PostalCode" Type="varchar" MaxLength="5" />
+    <Property Name="CountryID" Type="int" />
+    <Property Name="HomePhone" Type="varchar" MaxLength="10" />
+    <Property Name="WorkPhone" Type="varchar" MaxLength="10" />
+    <Property Name="HospitalPreferences" Type="varchar" MaxLength="100" />
+    <Property Name="InsuranceCompany" Type="varchar" MaxLength="25" />
+    <Property Name="PolicyNumber" Type="varchar" MaxLength="20" />
+    <Property Name="PhysicanName" Type="varchar" MaxLength="50" />
+    <Property Name="HospitalPhoneNo" Type="varchar" MaxLength="10" />
+    <Property Name="Allergies_SpecialHealthConsiderations" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ProfilePhotoPath" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="25" />
+    <Property Name="PassWord" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="StateMaster">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateName" Type="varchar" MaxLength="50" />
+    <Property Name="CountryId" Type="int" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="Batch" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Class" Type="nvarchar" MaxLength="50" />
+    <Property Name="School" Type="nvarchar" MaxLength="50" />
+    <Property Name="Domicile" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StudentMaster">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="Batch" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Class" Type="nvarchar" MaxLength="50" />
+    <Property Name="School" Type="nvarchar" MaxLength="50" />
+    <Property Name="Domicile" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="DepartmentMasterAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vDepartmentName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DepartmentMasterAutoCompleteByDeptName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vDepartmentName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DepartmentMasterDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iDepartmentAutoId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DepartmentMasterGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="DepartmentMasterGetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iDepartmentAutoId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DepartmentMasterGetByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vDepartmentName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DepartmentMasterUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iDepartmentAutoId" Type="int" Mode="In" />
+    <Parameter Name="vDepartmentName" Type="varchar" Mode="In" />
+    <Parameter Name="UpdatedTime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="DocotorMasterUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iDoctorAutoId" Type="int" Mode="In" />
+    <Parameter Name="vDoctorLName" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorFName" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorNPI" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorStreetAddress" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorAddressLine2" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorCity" Type="varchar" Mode="In" />
+    <Parameter Name="iDoctorState" Type="int" Mode="In" />
+    <Parameter Name="iDoctorCountry" Type="int" Mode="In" />
+    <Parameter Name="vDoctorZipCode" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorWorkPhone" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorHomePhone" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorMobilePhone" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorEmail" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DoctorAndDepartmentsListById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iDoctorId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DoctorAndDepartmentsSearchById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iDoctorId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DoctorFacilitiesListById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iDoctorId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DoctorMasterAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vDoctorLName" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorFName" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorNPI" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorStreetAddress" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorAddressLine2" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorCity" Type="varchar" Mode="In" />
+    <Parameter Name="iDoctorState" Type="int" Mode="In" />
+    <Parameter Name="iDoctorCountry" Type="int" Mode="In" />
+    <Parameter Name="vDoctorZipCode" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorWorkPhone" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorHomePhone" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorMobilePhone" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorEmail" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DoctorMasterDeleteById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iDoctorAutoId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DoctorMasterGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="DoctorMasterSearchById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iDoctorAutoId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DoctorMasterSearchByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vDoctorLName" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorFName" Type="varchar" Mode="In" />
+    <Parameter Name="vDoctorNPI" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DoctorsAndDepartmentsAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iDoctorId" Type="int" Mode="In" />
+    <Parameter Name="iDepartmentId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DoctorsAndDepartmentsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iDoctorId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FacilityCustomPaging" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="RecordCount" Type="int" Mode="InOut" />
+    <Parameter Name="OrderBy" Type="varchar" Mode="In" />
+    <Parameter Name="OrderByDirection" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="FacilityDoctorAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iDoctorId" Type="int" Mode="In" />
+    <Parameter Name="iFacilityId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FacilityDoctorDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iDoctorId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FacilityDoctorSearchById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iDoctorId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FacilityMasterAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vFacilityName" Type="nchar" Mode="In" />
+    <Parameter Name="vFStreetAdress" Type="nchar" Mode="In" />
+    <Parameter Name="vFAdressLine2" Type="nchar" Mode="In" />
+    <Parameter Name="vFCity" Type="nchar" Mode="In" />
+    <Parameter Name="iFStateID" Type="int" Mode="In" />
+    <Parameter Name="iFCountryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FacilityMasterDeleteById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iFacilityAutoId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FacilityMasterGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FacilityMasterSearchById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iFacilityAutoId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FacilityMasterSearchByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vFacilityName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="FacilityMasterUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iFacilityAutoId" Type="int" Mode="In" />
+    <Parameter Name="vFacilityName" Type="nchar" Mode="In" />
+    <Parameter Name="vFStreetAdress" Type="nchar" Mode="In" />
+    <Parameter Name="vFAdressLine2" Type="nchar" Mode="In" />
+    <Parameter Name="vFCity" Type="nchar" Mode="In" />
+    <Parameter Name="iFCountryID" Type="int" Mode="In" />
+    <Parameter Name="iFStateID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PatientPhotoPicUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iPersonAutoId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PersonLinqGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="PersonMasterAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vPersonLName" Type="varchar" Mode="In" />
+    <Parameter Name="vPersonFName" Type="varchar" Mode="In" />
+    <Parameter Name="bGender" Type="bit" Mode="In" />
+    <Parameter Name="dbDateofBirth" Type="date" Mode="In" />
+    <Parameter Name="vEmergencyContactFName" Type="varchar" Mode="In" />
+    <Parameter Name="vEmergencyContactLName" Type="varchar" Mode="In" />
+    <Parameter Name="vRelationship" Type="varchar" Mode="In" />
+    <Parameter Name="vStreetAddress" Type="varchar" Mode="In" />
+    <Parameter Name="vAddressLine2" Type="varchar" Mode="In" />
+    <Parameter Name="vCity" Type="varchar" Mode="In" />
+    <Parameter Name="vStateID" Type="varchar" Mode="In" />
+    <Parameter Name="vPostalCode" Type="varchar" Mode="In" />
+    <Parameter Name="iCountryID" Type="int" Mode="In" />
+    <Parameter Name="vHomePhone" Type="varchar" Mode="In" />
+    <Parameter Name="vWorkPhone" Type="varchar" Mode="In" />
+    <Parameter Name="vHospitalPreferences" Type="varchar" Mode="In" />
+    <Parameter Name="vInsuranceCompany" Type="varchar" Mode="In" />
+    <Parameter Name="vPolicyNumber" Type="varchar" Mode="In" />
+    <Parameter Name="vPhysicanName" Type="varchar" Mode="In" />
+    <Parameter Name="vHospitalPhoneNo" Type="varchar" Mode="In" />
+    <Parameter Name="vAllergies_SpecialHealthConsiderations" Type="nvarchar" Mode="In" />
+    <Parameter Name="vProfilePhotoPath" Type="nvarchar" Mode="In" />
+    <Parameter Name="vUserName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vPassWord" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="PersonMasterDeleteById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iPersonAutoID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PersonMasterExporttoExcel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="PersonMasterGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="PersonMasterGetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iPersonAutoId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PersonMasterLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vUserName" Type="varchar" Mode="In" />
+    <Parameter Name="vPassWord" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="PersonMasterSearchByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vPersonLName" Type="varchar" Mode="In" />
+    <Parameter Name="vPersonFName" Type="varchar" Mode="In" />
+    <Parameter Name="vPolicyNumber" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="PersonMasterUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iPersonAutoID" Type="int" Mode="In" />
+    <Parameter Name="vPersonLName" Type="varchar" Mode="In" />
+    <Parameter Name="vPersonFName" Type="varchar" Mode="In" />
+    <Parameter Name="bGender" Type="bit" Mode="In" />
+    <Parameter Name="dbDateofBirth" Type="date" Mode="In" />
+    <Parameter Name="vEmergencyContactFName" Type="varchar" Mode="In" />
+    <Parameter Name="vEmergencyContactLName" Type="varchar" Mode="In" />
+    <Parameter Name="vRelationship" Type="varchar" Mode="In" />
+    <Parameter Name="vStreetAddress" Type="varchar" Mode="In" />
+    <Parameter Name="vAddressLine2" Type="varchar" Mode="In" />
+    <Parameter Name="vCity" Type="varchar" Mode="In" />
+    <Parameter Name="vStateID" Type="varchar" Mode="In" />
+    <Parameter Name="vPostalCode" Type="varchar" Mode="In" />
+    <Parameter Name="iCountryID" Type="int" Mode="In" />
+    <Parameter Name="vHomePhone" Type="varchar" Mode="In" />
+    <Parameter Name="vWorkPhone" Type="varchar" Mode="In" />
+    <Parameter Name="vHospitalPreferences" Type="varchar" Mode="In" />
+    <Parameter Name="vInsuranceCompany" Type="varchar" Mode="In" />
+    <Parameter Name="vPolicyNumber" Type="varchar" Mode="In" />
+    <Parameter Name="vPhysicanName" Type="varchar" Mode="In" />
+    <Parameter Name="vHospitalPhoneNo" Type="varchar" Mode="In" />
+    <Parameter Name="vAllergies_SpecialHealthConsiderations" Type="nvarchar" Mode="In" />
+    <Parameter Name="vProfilePhotoPath" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="MedicalDBModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CountryMaster" EntityType="Self.CountryMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DepartmentDoctor" EntityType="Self.DepartmentDoctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DepartmentMaster" EntityType="Self.DepartmentMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DoctorMaster" EntityType="Self.DoctorMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FacilityDoctor" EntityType="Self.FacilityDoctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FacilityMaster" EntityType="Self.FacilityMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FacilityUserProfiles" EntityType="Self.FacilityUserProfiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeedBackMaster" EntityType="Self.FeedBackMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonLinq" EntityType="Self.PersonLinq" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonMaster" EntityType="Self.PersonMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StateMaster" EntityType="Self.StateMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentMaster" EntityType="Self.StudentMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CityMaster" EntityType="Self.CityMaster" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CityMaster].[CityId] AS [CityId], 
+    [CityMaster].[CityName] AS [CityName], 
+    [CityMaster].[StateId] AS [StateId]
+    FROM [dbo].[CityMaster] AS [CityMaster]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

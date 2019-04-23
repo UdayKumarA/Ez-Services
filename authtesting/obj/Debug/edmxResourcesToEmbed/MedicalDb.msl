@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MedicalDBModelStoreContainer" CdmEntityContainer="MedicalDBEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="MedicalDBModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="MedicalDBModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="MedicalDBModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="MedicalDBModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="MedicalDBModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CountryMasters">
+      <EntityTypeMapping TypeName="MedicalDBModel.CountryMaster">
+        <MappingFragment StoreEntitySet="CountryMaster">
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartmentDoctors">
+      <EntityTypeMapping TypeName="MedicalDBModel.DepartmentDoctor">
+        <MappingFragment StoreEntitySet="DepartmentDoctor">
+          <ScalarProperty Name="DepartmentDoctorAutoId" ColumnName="DepartmentDoctorAutoId" />
+          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartmentMasters">
+      <EntityTypeMapping TypeName="MedicalDBModel.DepartmentMaster">
+        <MappingFragment StoreEntitySet="DepartmentMaster">
+          <ScalarProperty Name="DepartmentAutoId" ColumnName="DepartmentAutoId" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoctorMasters">
+      <EntityTypeMapping TypeName="MedicalDBModel.DoctorMaster">
+        <MappingFragment StoreEntitySet="DoctorMaster">
+          <ScalarProperty Name="DoctorAutoId" ColumnName="DoctorAutoId" />
+          <ScalarProperty Name="DoctorLName" ColumnName="DoctorLName" />
+          <ScalarProperty Name="DoctorFName" ColumnName="DoctorFName" />
+          <ScalarProperty Name="DoctorNPI" ColumnName="DoctorNPI" />
+          <ScalarProperty Name="DoctorStreetAddress" ColumnName="DoctorStreetAddress" />
+          <ScalarProperty Name="DoctorAddressLine2" ColumnName="DoctorAddressLine2" />
+          <ScalarProperty Name="DoctorCity" ColumnName="DoctorCity" />
+          <ScalarProperty Name="DoctorState" ColumnName="DoctorState" />
+          <ScalarProperty Name="DoctorCountry" ColumnName="DoctorCountry" />
+          <ScalarProperty Name="DoctorZipCode" ColumnName="DoctorZipCode" />
+          <ScalarProperty Name="DoctorWorkPhone" ColumnName="DoctorWorkPhone" />
+          <ScalarProperty Name="DoctorHomePhone" ColumnName="DoctorHomePhone" />
+          <ScalarProperty Name="DoctorMobilePhone" ColumnName="DoctorMobilePhone" />
+          <ScalarProperty Name="DoctorEmail" ColumnName="DoctorEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FacilityDoctors">
+      <EntityTypeMapping TypeName="MedicalDBModel.FacilityDoctor">
+        <MappingFragment StoreEntitySet="FacilityDoctor">
+          <ScalarProperty Name="FacilityDoctorAutoId" ColumnName="FacilityDoctorAutoId" />
+          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+          <ScalarProperty Name="FacilityId" ColumnName="FacilityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FacilityMasters">
+      <EntityTypeMapping TypeName="MedicalDBModel.FacilityMaster">
+        <MappingFragment StoreEntitySet="FacilityMaster">
+          <ScalarProperty Name="FacilityAutoId" ColumnName="FacilityAutoId" />
+          <ScalarProperty Name="FacilityName" ColumnName="FacilityName" />
+          <ScalarProperty Name="FStreetAdress" ColumnName="FStreetAdress" />
+          <ScalarProperty Name="FAdressLine2" ColumnName="FAdressLine2" />
+          <ScalarProperty Name="FCity" ColumnName="FCity" />
+          <ScalarProperty Name="FCountryID" ColumnName="FCountryID" />
+          <ScalarProperty Name="FStateID" ColumnName="FStateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FacilityUserProfiles">
+      <EntityTypeMapping TypeName="MedicalDBModel.FacilityUserProfile">
+        <MappingFragment StoreEntitySet="FacilityUserProfiles">
+          <ScalarProperty Name="FacilityUserId" ColumnName="FacilityUserId" />
+          <ScalarProperty Name="FacilityUserName" ColumnName="FacilityUserName" />
+          <ScalarProperty Name="FacilityPassWord" ColumnName="FacilityPassWord" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedBackMasters">
+      <EntityTypeMapping TypeName="MedicalDBModel.FeedBackMaster">
+        <MappingFragment StoreEntitySet="FeedBackMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FacilityName" ColumnName="FacilityName" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonLinqs">
+      <EntityTypeMapping TypeName="MedicalDBModel.PersonLinq">
+        <MappingFragment StoreEntitySet="PersonLinq">
+          <ScalarProperty Name="PersonAutoID" ColumnName="PersonAutoID" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="PersonAge" ColumnName="PersonAge" />
+          <ScalarProperty Name="PersonJob" ColumnName="PersonJob" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonMasters">
+      <EntityTypeMapping TypeName="MedicalDBModel.PersonMaster">
+        <MappingFragment StoreEntitySet="PersonMaster">
+          <ScalarProperty Name="PersonAutoID" ColumnName="PersonAutoID" />
+          <ScalarProperty Name="PersonLName" ColumnName="PersonLName" />
+          <ScalarProperty Name="PersonFName" ColumnName="PersonFName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+          <ScalarProperty Name="EmergencyContactFName" ColumnName="EmergencyContactFName" />
+          <ScalarProperty Name="EmergencyContactLName" ColumnName="EmergencyContactLName" />
+          <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="HospitalPreferences" ColumnName="HospitalPreferences" />
+          <ScalarProperty Name="InsuranceCompany" ColumnName="InsuranceCompany" />
+          <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+          <ScalarProperty Name="PhysicanName" ColumnName="PhysicanName" />
+          <ScalarProperty Name="HospitalPhoneNo" ColumnName="HospitalPhoneNo" />
+          <ScalarProperty Name="Allergies_SpecialHealthConsiderations" ColumnName="Allergies_SpecialHealthConsiderations" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ProfilePhotoPath" ColumnName="ProfilePhotoPath" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StateMasters">
+      <EntityTypeMapping TypeName="MedicalDBModel.StateMaster">
+        <MappingFragment StoreEntitySet="StateMaster">
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="MedicalDBModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Batch" ColumnName="Batch" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="School" ColumnName="School" />
+          <ScalarProperty Name="Domicile" ColumnName="Domicile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentMasters">
+      <EntityTypeMapping TypeName="MedicalDBModel.StudentMaster">
+        <MappingFragment StoreEntitySet="StudentMaster">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Batch" ColumnName="Batch" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="School" ColumnName="School" />
+          <ScalarProperty Name="Domicile" ColumnName="Domicile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CityMasters">
+      <EntityTypeMapping TypeName="MedicalDBModel.CityMaster">
+        <MappingFragment StoreEntitySet="CityMaster">
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="MedicalDBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="DepartmentMasterAdd" FunctionName="MedicalDBModel.Store.DepartmentMasterAdd" />
+    <FunctionImportMapping FunctionImportName="DepartmentMasterAutoCompleteByDeptName" FunctionName="MedicalDBModel.Store.DepartmentMasterAutoCompleteByDeptName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedicalDBModel.DepartmentMasterAutoCompleteByDeptName_Result">
+          <ScalarProperty Name="DepartmentAutoId" ColumnName="DepartmentAutoId" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DepartmentMasterDelete" FunctionName="MedicalDBModel.Store.DepartmentMasterDelete" />
+    <FunctionImportMapping FunctionImportName="DepartmentMasterGetAll" FunctionName="MedicalDBModel.Store.DepartmentMasterGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedicalDBModel.DepartmentMasterGetAll_Result">
+          <ScalarProperty Name="DepartmentAutoId" ColumnName="DepartmentAutoId" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DepartmentMasterGetById" FunctionName="MedicalDBModel.Store.DepartmentMasterGetById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedicalDBModel.DepartmentMasterGetById_Result">
+          <ScalarProperty Name="DepartmentAutoId" ColumnName="DepartmentAutoId" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DepartmentMasterGetByName" FunctionName="MedicalDBModel.Store.DepartmentMasterGetByName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedicalDBModel.DepartmentMasterGetByName_Result">
+          <ScalarProperty Name="DepartmentAutoId" ColumnName="DepartmentAutoId" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DepartmentMasterUpdate" FunctionName="MedicalDBModel.Store.DepartmentMasterUpdate" />
+    <FunctionImportMapping FunctionImportName="DocotorMasterUpdate" FunctionName="MedicalDBModel.Store.DocotorMasterUpdate" />
+    <FunctionImportMapping FunctionImportName="DoctorAndDepartmentsListById" FunctionName="MedicalDBModel.Store.DoctorAndDepartmentsListById" />
+    <FunctionImportMapping FunctionImportName="DoctorAndDepartmentsSearchById" FunctionName="MedicalDBModel.Store.DoctorAndDepartmentsSearchById" />
+    <FunctionImportMapping FunctionImportName="DoctorFacilitiesListById" FunctionName="MedicalDBModel.Store.DoctorFacilitiesListById" />
+    <FunctionImportMapping FunctionImportName="DoctorMasterAdd" FunctionName="MedicalDBModel.Store.DoctorMasterAdd" />
+    <FunctionImportMapping FunctionImportName="DoctorMasterDeleteById" FunctionName="MedicalDBModel.Store.DoctorMasterDeleteById" />
+    <FunctionImportMapping FunctionImportName="DoctorMasterGetAll" FunctionName="MedicalDBModel.Store.DoctorMasterGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedicalDBModel.DoctorMasterGetAll_Result">
+          <ScalarProperty Name="DoctorAutoId" ColumnName="DoctorAutoId" />
+          <ScalarProperty Name="DoctorLName" ColumnName="DoctorLName" />
+          <ScalarProperty Name="DoctorFName" ColumnName="DoctorFName" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="DoctorNPI" ColumnName="DoctorNPI" />
+          <ScalarProperty Name="DoctorStreetAddress" ColumnName="DoctorStreetAddress" />
+          <ScalarProperty Name="DoctorAddressLine2" ColumnName="DoctorAddressLine2" />
+          <ScalarProperty Name="DoctorCity" ColumnName="DoctorCity" />
+          <ScalarProperty Name="DoctorState" ColumnName="DoctorState" />
+          <ScalarProperty Name="DoctorCountry" ColumnName="DoctorCountry" />
+          <ScalarProperty Name="DoctorZipCode" ColumnName="DoctorZipCode" />
+          <ScalarProperty Name="DoctorWorkPhone" ColumnName="DoctorWorkPhone" />
+          <ScalarProperty Name="DoctorHomePhone" ColumnName="DoctorHomePhone" />
+          <ScalarProperty Name="DoctorMobilePhone" ColumnName="DoctorMobilePhone" />
+          <ScalarProperty Name="DoctorEmail" ColumnName="DoctorEmail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DoctorMasterSearchById" FunctionName="MedicalDBModel.Store.DoctorMasterSearchById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedicalDBModel.DoctorMasterSearchById_Result">
+          <ScalarProperty Name="DoctorAutoId" ColumnName="DoctorAutoId" />
+          <ScalarProperty Name="DoctorLName" ColumnName="DoctorLName" />
+          <ScalarProperty Name="DoctorFName" ColumnName="DoctorFName" />
+          <ScalarProperty Name="DoctorNPI" ColumnName="DoctorNPI" />
+          <ScalarProperty Name="DoctorStreetAddress" ColumnName="DoctorStreetAddress" />
+          <ScalarProperty Name="DoctorAddressLine2" ColumnName="DoctorAddressLine2" />
+          <ScalarProperty Name="DoctorCity" ColumnName="DoctorCity" />
+          <ScalarProperty Name="DoctorState" ColumnName="DoctorState" />
+          <ScalarProperty Name="DoctorCountry" ColumnName="DoctorCountry" />
+          <ScalarProperty Name="DoctorZipCode" ColumnName="DoctorZipCode" />
+          <ScalarProperty Name="DoctorWorkPhone" ColumnName="DoctorWorkPhone" />
+          <ScalarProperty Name="DoctorHomePhone" ColumnName="DoctorHomePhone" />
+          <ScalarProperty Name="DoctorMobilePhone" ColumnName="DoctorMobilePhone" />
+          <ScalarProperty Name="DoctorEmail" ColumnName="DoctorEmail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DoctorMasterSearchByName" FunctionName="MedicalDBModel.Store.DoctorMasterSearchByName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedicalDBModel.DoctorMasterSearchByName_Result">
+          <ScalarProperty Name="DoctorAutoId" ColumnName="DoctorAutoId" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="DoctorNPI" ColumnName="DoctorNPI" />
+          <ScalarProperty Name="DoctorStreetAddress" ColumnName="DoctorStreetAddress" />
+          <ScalarProperty Name="DoctorAddressLine2" ColumnName="DoctorAddressLine2" />
+          <ScalarProperty Name="DoctorCity" ColumnName="DoctorCity" />
+          <ScalarProperty Name="DoctorState" ColumnName="DoctorState" />
+          <ScalarProperty Name="DoctorCountry" ColumnName="DoctorCountry" />
+          <ScalarProperty Name="DoctorZipCode" ColumnName="DoctorZipCode" />
+          <ScalarProperty Name="DoctorWorkPhone" ColumnName="DoctorWorkPhone" />
+          <ScalarProperty Name="DoctorHomePhone" ColumnName="DoctorHomePhone" />
+          <ScalarProperty Name="DoctorMobilePhone" ColumnName="DoctorMobilePhone" />
+          <ScalarProperty Name="DoctorEmail" ColumnName="DoctorEmail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DoctorsAndDepartmentsAdd" FunctionName="MedicalDBModel.Store.DoctorsAndDepartmentsAdd" />
+    <FunctionImportMapping FunctionImportName="DoctorsAndDepartmentsDelete" FunctionName="MedicalDBModel.Store.DoctorsAndDepartmentsDelete" />
+    <FunctionImportMapping FunctionImportName="FacilityCustomPaging" FunctionName="MedicalDBModel.Store.FacilityCustomPaging" />
+    <FunctionImportMapping FunctionImportName="FacilityDoctorAdd" FunctionName="MedicalDBModel.Store.FacilityDoctorAdd" />
+    <FunctionImportMapping FunctionImportName="FacilityDoctorDelete" FunctionName="MedicalDBModel.Store.FacilityDoctorDelete" />
+    <FunctionImportMapping FunctionImportName="FacilityDoctorSearchById" FunctionName="MedicalDBModel.Store.FacilityDoctorSearchById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedicalDBModel.FacilityDoctorSearchById_Result">
+          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+          <ScalarProperty Name="FacilityId" ColumnName="FacilityId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FacilityMasterAdd" FunctionName="MedicalDBModel.Store.FacilityMasterAdd" />
+    <FunctionImportMapping FunctionImportName="FacilityMasterDeleteById" FunctionName="MedicalDBModel.Store.FacilityMasterDeleteById" />
+    <FunctionImportMapping FunctionImportName="FacilityMasterGetAll" FunctionName="MedicalDBModel.Store.FacilityMasterGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedicalDBModel.FacilityMasterGetAll_Result">
+          <ScalarProperty Name="FacilityAutoId" ColumnName="FacilityAutoId" />
+          <ScalarProperty Name="FacilityName" ColumnName="FacilityName" />
+          <ScalarProperty Name="FStreetAdress" ColumnName="FStreetAdress" />
+          <ScalarProperty Name="FAdressLine2" ColumnName="FAdressLine2" />
+          <ScalarProperty Name="FCity" ColumnName="FCity" />
+          <ScalarProperty Name="FCountryID" ColumnName="FCountryID" />
+          <ScalarProperty Name="FStateID" ColumnName="FStateID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FacilityMasterSearchById" FunctionName="MedicalDBModel.Store.FacilityMasterSearchById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedicalDBModel.FacilityMasterSearchById_Result">
+          <ScalarProperty Name="FacilityAutoId" ColumnName="FacilityAutoId" />
+          <ScalarProperty Name="FacilityName" ColumnName="FacilityName" />
+          <ScalarProperty Name="FStreetAdress" ColumnName="FStreetAdress" />
+          <ScalarProperty Name="FAdressLine2" ColumnName="FAdressLine2" />
+          <ScalarProperty Name="FCity" ColumnName="FCity" />
+          <ScalarProperty Name="FCountryID" ColumnName="FCountryID" />
+          <ScalarProperty Name="FStateID" ColumnName="FStateID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FacilityMasterSearchByName" FunctionName="MedicalDBModel.Store.FacilityMasterSearchByName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedicalDBModel.FacilityMasterSearchByName_Result">
+          <ScalarProperty Name="FacilityAutoId" ColumnName="FacilityAutoId" />
+          <ScalarProperty Name="FacilityName" ColumnName="FacilityName" />
+          <ScalarProperty Name="FStreetAdress" ColumnName="FStreetAdress" />
+          <ScalarProperty Name="FAdressLine2" ColumnName="FAdressLine2" />
+          <ScalarProperty Name="FCity" ColumnName="FCity" />
+          <ScalarProperty Name="FCountryID" ColumnName="FCountryID" />
+          <ScalarProperty Name="FStateID" ColumnName="FStateID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FacilityMasterUpdate" FunctionName="MedicalDBModel.Store.FacilityMasterUpdate" />
+    <FunctionImportMapping FunctionImportName="PatientPhotoPicUpdate" FunctionName="MedicalDBModel.Store.PatientPhotoPicUpdate" />
+    <FunctionImportMapping FunctionImportName="PersonLinqGetAll" FunctionName="MedicalDBModel.Store.PersonLinqGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedicalDBModel.PersonLinqGetAll_Result">
+          <ScalarProperty Name="PersonAutoID" ColumnName="PersonAutoID" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="PersonAge" ColumnName="PersonAge" />
+          <ScalarProperty Name="PersonJob" ColumnName="PersonJob" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PersonMasterAdd" FunctionName="MedicalDBModel.Store.PersonMasterAdd" />
+    <FunctionImportMapping FunctionImportName="PersonMasterDeleteById" FunctionName="MedicalDBModel.Store.PersonMasterDeleteById" />
+    <FunctionImportMapping FunctionImportName="PersonMasterExporttoExcel" FunctionName="MedicalDBModel.Store.PersonMasterExporttoExcel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedicalDBModel.PersonMasterExporttoExcel_Result">
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="EmergencyContactPerson" ColumnName="EmergencyContactPerson" />
+          <ScalarProperty Name="InsuranceCompany" ColumnName="InsuranceCompany" />
+          <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PersonMasterGetAll" FunctionName="MedicalDBModel.Store.PersonMasterGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedicalDBModel.PersonMasterGetAll_Result">
+          <ScalarProperty Name="PersonAutoId" ColumnName="PersonAutoId" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="EmergencyContactPerson" ColumnName="EmergencyContactPerson" />
+          <ScalarProperty Name="InsuranceCompany" ColumnName="InsuranceCompany" />
+          <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+          <ScalarProperty Name="ProfilePhotoPath" ColumnName="ProfilePhotoPath" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PersonMasterGetById" FunctionName="MedicalDBModel.Store.PersonMasterGetById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedicalDBModel.PersonMasterGetById_Result">
+          <ScalarProperty Name="PersonAutoID" ColumnName="PersonAutoID" />
+          <ScalarProperty Name="PersonLName" ColumnName="PersonLName" />
+          <ScalarProperty Name="PersonFName" ColumnName="PersonFName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+          <ScalarProperty Name="EmergencyContactFName" ColumnName="EmergencyContactFName" />
+          <ScalarProperty Name="EmergencyContactLName" ColumnName="EmergencyContactLName" />
+          <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="HospitalPreferences" ColumnName="HospitalPreferences" />
+          <ScalarProperty Name="InsuranceCompany" ColumnName="InsuranceCompany" />
+          <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+          <ScalarProperty Name="PhysicanName" ColumnName="PhysicanName" />
+          <ScalarProperty Name="HospitalPhoneNo" ColumnName="HospitalPhoneNo" />
+          <ScalarProperty Name="Allergies_SpecialHealthConsiderations" ColumnName="Allergies_SpecialHealthConsiderations" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ProfilePhotoPath" ColumnName="ProfilePhotoPath" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PersonMasterLogin" FunctionName="MedicalDBModel.Store.PersonMasterLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedicalDBModel.PersonMasterLogin_Result">
+          <ScalarProperty Name="PersonAutoId" ColumnName="PersonAutoId" />
+          <ScalarProperty Name="PersonLName" ColumnName="PersonLName" />
+          <ScalarProperty Name="PersonFName" ColumnName="PersonFName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PersonMasterSearchByName" FunctionName="MedicalDBModel.Store.PersonMasterSearchByName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedicalDBModel.PersonMasterSearchByName_Result">
+          <ScalarProperty Name="PersonAutoId" ColumnName="PersonAutoId" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="EmergencyContactPerson" ColumnName="EmergencyContactPerson" />
+          <ScalarProperty Name="InsuranceCompany" ColumnName="InsuranceCompany" />
+          <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+          <ScalarProperty Name="ProfilePhotoPath" ColumnName="ProfilePhotoPath" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PersonMasterUpdate" FunctionName="MedicalDBModel.Store.PersonMasterUpdate" />
+  </EntityContainerMapping>
+</Mapping>

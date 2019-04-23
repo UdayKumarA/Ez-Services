@@ -1,0 +1,643 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EvolutyzCornerDBTestingModelStoreContainer" CdmEntityContainer="EvolutyzCornerDBTestingEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="Acc_AccountID" ColumnName="Acc_AccountID" />
+          <ScalarProperty Name="Acc_AccountCode" ColumnName="Acc_AccountCode" />
+          <ScalarProperty Name="Acc_AccountName" ColumnName="Acc_AccountName" />
+          <ScalarProperty Name="Acc_AccountDescription" ColumnName="Acc_AccountDescription" />
+          <ScalarProperty Name="Acc_EmailID" ColumnName="Acc_EmailID" />
+          <ScalarProperty Name="Acc_MobileNumber" ColumnName="Acc_MobileNumber" />
+          <ScalarProperty Name="Acc_PhoneNumber" ColumnName="Acc_PhoneNumber" />
+          <ScalarProperty Name="Acc_CompanyLogo" ColumnName="Acc_CompanyLogo" />
+          <ScalarProperty Name="Acc_ActiveStatus" ColumnName="Acc_ActiveStatus" />
+          <ScalarProperty Name="Acc_Version" ColumnName="Acc_Version" />
+          <ScalarProperty Name="Acc_CreatedDate" ColumnName="Acc_CreatedDate" />
+          <ScalarProperty Name="Acc_CreatedBy" ColumnName="Acc_CreatedBy" />
+          <ScalarProperty Name="Acc_ModifiedDate" ColumnName="Acc_ModifiedDate" />
+          <ScalarProperty Name="Acc_ModifiedBy" ColumnName="Acc_ModifiedBy" />
+          <ScalarProperty Name="Acc_isDeleted" ColumnName="Acc_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailNotificationTemplates">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.EmailNotificationTemplate">
+        <MappingFragment StoreEntitySet="EmailNotificationTemplate">
+          <ScalarProperty Name="EmailNotificationId" ColumnName="EmailNotificationId" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ErrorLogs">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.ErrorLog">
+        <MappingFragment StoreEntitySet="ErrorLogs">
+          <ScalarProperty Name="ErrorlogId" ColumnName="ErrorlogId" />
+          <ScalarProperty Name="SourceName" ColumnName="SourceName" />
+          <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GenericTasks">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.GenericTask">
+        <MappingFragment StoreEntitySet="GenericTasks">
+          <ScalarProperty Name="tsk_TaskID" ColumnName="tsk_TaskID" />
+          <ScalarProperty Name="tsk_TaskName" ColumnName="tsk_TaskName" />
+          <ScalarProperty Name="tsk_TaskDescription" ColumnName="tsk_TaskDescription" />
+          <ScalarProperty Name="tsk_ActiveStatus" ColumnName="tsk_ActiveStatus" />
+          <ScalarProperty Name="tsk_Version" ColumnName="tsk_Version" />
+          <ScalarProperty Name="tsk_CreatedDate" ColumnName="tsk_CreatedDate" />
+          <ScalarProperty Name="tsk_CreatedBy" ColumnName="tsk_CreatedBy" />
+          <ScalarProperty Name="tsk_ModifiedDate" ColumnName="tsk_ModifiedDate" />
+          <ScalarProperty Name="tsk_ModifiedBy" ColumnName="tsk_ModifiedBy" />
+          <ScalarProperty Name="tsk_isDeleted" ColumnName="tsk_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="History_Account">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.History_Account">
+        <MappingFragment StoreEntitySet="History_Account">
+          <ScalarProperty Name="History_Account_AccountID" ColumnName="History_Account_AccountID" />
+          <ScalarProperty Name="History_Acc_AccountID" ColumnName="History_Acc_AccountID" />
+          <ScalarProperty Name="History_Acc_AccountCode" ColumnName="History_Acc_AccountCode" />
+          <ScalarProperty Name="History_Acc_AccountName" ColumnName="History_Acc_AccountName" />
+          <ScalarProperty Name="History_Acc_AccountDescription" ColumnName="History_Acc_AccountDescription" />
+          <ScalarProperty Name="History_Acc_EmailID" ColumnName="History_Acc_EmailID" />
+          <ScalarProperty Name="History_Acc_MobileNumber" ColumnName="History_Acc_MobileNumber" />
+          <ScalarProperty Name="History_Acc_PhoneNumber" ColumnName="History_Acc_PhoneNumber" />
+          <ScalarProperty Name="History_Acc_CompanyLogo" ColumnName="History_Acc_CompanyLogo" />
+          <ScalarProperty Name="History_Acc_ActiveStatus" ColumnName="History_Acc_ActiveStatus" />
+          <ScalarProperty Name="History_Acc_Version" ColumnName="History_Acc_Version" />
+          <ScalarProperty Name="History_Acc_CreatedDate" ColumnName="History_Acc_CreatedDate" />
+          <ScalarProperty Name="History_Acc_CreatedBy" ColumnName="History_Acc_CreatedBy" />
+          <ScalarProperty Name="History_Acc_ModifiedDate" ColumnName="History_Acc_ModifiedDate" />
+          <ScalarProperty Name="History_Acc_ModifiedBy" ColumnName="History_Acc_ModifiedBy" />
+          <ScalarProperty Name="History_Acc_isDeleted" ColumnName="History_Acc_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="History_LeaveScheme">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.History_LeaveScheme">
+        <MappingFragment StoreEntitySet="History_LeaveScheme">
+          <ScalarProperty Name="History_LeaveScheme_ID" ColumnName="History_LeaveScheme_ID" />
+          <ScalarProperty Name="History_LSchm_LeaveSchemeID" ColumnName="History_LSchm_LeaveSchemeID" />
+          <ScalarProperty Name="History_LSchm_LeaveTypeID" ColumnName="History_LSchm_LeaveTypeID" />
+          <ScalarProperty Name="History_LSchm_UserTypeID" ColumnName="History_LSchm_UserTypeID" />
+          <ScalarProperty Name="History_LSchm_LeaveFrequency" ColumnName="History_LSchm_LeaveFrequency" />
+          <ScalarProperty Name="History_LSchm_AccountID" ColumnName="History_LSchm_AccountID" />
+          <ScalarProperty Name="History_LSchm_LeaveSchemeCode" ColumnName="History_LSchm_LeaveSchemeCode" />
+          <ScalarProperty Name="History_LSchm_LeaveScheme" ColumnName="History_LSchm_LeaveScheme" />
+          <ScalarProperty Name="History_LSchm_LeaveSchemeDescription" ColumnName="History_LSchm_LeaveSchemeDescription" />
+          <ScalarProperty Name="History_LSchm_LeaveCount" ColumnName="History_LSchm_LeaveCount" />
+          <ScalarProperty Name="History_LSchm_ActiveStatus" ColumnName="History_LSchm_ActiveStatus" />
+          <ScalarProperty Name="History_LSchm_Version" ColumnName="History_LSchm_Version" />
+          <ScalarProperty Name="History_LSchm_CreatedDate" ColumnName="History_LSchm_CreatedDate" />
+          <ScalarProperty Name="History_LSchm_CreatedBy" ColumnName="History_LSchm_CreatedBy" />
+          <ScalarProperty Name="History_LSchm_ModifiedDate" ColumnName="History_LSchm_ModifiedDate" />
+          <ScalarProperty Name="History_LSchm_ModifiedBy" ColumnName="History_LSchm_ModifiedBy" />
+          <ScalarProperty Name="History_LSchm_isDeleted" ColumnName="History_LSchm_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="History_LeaveType">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.History_LeaveType">
+        <MappingFragment StoreEntitySet="History_LeaveType">
+          <ScalarProperty Name="History_LeaveType_ID" ColumnName="History_LeaveType_ID" />
+          <ScalarProperty Name="History_LTyp_LeaveTypeID" ColumnName="History_LTyp_LeaveTypeID" />
+          <ScalarProperty Name="History_LTyp_AccountID" ColumnName="History_LTyp_AccountID" />
+          <ScalarProperty Name="History_LTyp_LeaveType" ColumnName="History_LTyp_LeaveType" />
+          <ScalarProperty Name="History_LTyp_LeaveTypeDescription" ColumnName="History_LTyp_LeaveTypeDescription" />
+          <ScalarProperty Name="History_LTyp_ActiveStatus" ColumnName="History_LTyp_ActiveStatus" />
+          <ScalarProperty Name="History_LTyp_Version" ColumnName="History_LTyp_Version" />
+          <ScalarProperty Name="History_LTyp_CreatedDate" ColumnName="History_LTyp_CreatedDate" />
+          <ScalarProperty Name="History_LTyp_CreatedBy" ColumnName="History_LTyp_CreatedBy" />
+          <ScalarProperty Name="History_LTyp_ModifiedDate" ColumnName="History_LTyp_ModifiedDate" />
+          <ScalarProperty Name="History_LTyp_ModifiedBy" ColumnName="History_LTyp_ModifiedBy" />
+          <ScalarProperty Name="History_LTyp_isDeleted" ColumnName="History_LTyp_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="History_Projects">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.History_Projects">
+        <MappingFragment StoreEntitySet="History_Projects">
+          <ScalarProperty Name="History_Project_ID" ColumnName="History_Project_ID" />
+          <ScalarProperty Name="History_Proj_ProjectID" ColumnName="History_Proj_ProjectID" />
+          <ScalarProperty Name="History_Proj_AccountID" ColumnName="History_Proj_AccountID" />
+          <ScalarProperty Name="History_Proj_ProjectCode" ColumnName="History_Proj_ProjectCode" />
+          <ScalarProperty Name="History_Proj_ProjectName" ColumnName="History_Proj_ProjectName" />
+          <ScalarProperty Name="History_Proj_ProjectDescription" ColumnName="History_Proj_ProjectDescription" />
+          <ScalarProperty Name="History_Proj_StartDate" ColumnName="History_Proj_StartDate" />
+          <ScalarProperty Name="History_Proj_EndDate" ColumnName="History_Proj_EndDate" />
+          <ScalarProperty Name="History_Proj_ActiveStatus" ColumnName="History_Proj_ActiveStatus" />
+          <ScalarProperty Name="History_Proj_Version" ColumnName="History_Proj_Version" />
+          <ScalarProperty Name="History_Proj_CreatedDate" ColumnName="History_Proj_CreatedDate" />
+          <ScalarProperty Name="History_Proj_CreatedBy" ColumnName="History_Proj_CreatedBy" />
+          <ScalarProperty Name="History_Proj_ModifiedDate" ColumnName="History_Proj_ModifiedDate" />
+          <ScalarProperty Name="History_Proj_ModifiedBy" ColumnName="History_Proj_ModifiedBy" />
+          <ScalarProperty Name="History_Proj_isDeleted" ColumnName="History_Proj_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="History_Role">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.History_Role">
+        <MappingFragment StoreEntitySet="History_Role">
+          <ScalarProperty Name="History_Role_ID" ColumnName="History_Role_ID" />
+          <ScalarProperty Name="History_Rol_RoleID" ColumnName="History_Rol_RoleID" />
+          <ScalarProperty Name="History_Rol_AccountID" ColumnName="History_Rol_AccountID" />
+          <ScalarProperty Name="History_Rol_RoleCode" ColumnName="History_Rol_RoleCode" />
+          <ScalarProperty Name="History_Rol_RoleName" ColumnName="History_Rol_RoleName" />
+          <ScalarProperty Name="History_Rol_RoleDescription" ColumnName="History_Rol_RoleDescription" />
+          <ScalarProperty Name="History_Rol_ActiveStatus" ColumnName="History_Rol_ActiveStatus" />
+          <ScalarProperty Name="History_Rol_Version" ColumnName="History_Rol_Version" />
+          <ScalarProperty Name="History_Rol_CreatedDate" ColumnName="History_Rol_CreatedDate" />
+          <ScalarProperty Name="History_Rol_createdBy" ColumnName="History_Rol_createdBy" />
+          <ScalarProperty Name="History_Rol_ModifiedDate" ColumnName="History_Rol_ModifiedDate" />
+          <ScalarProperty Name="History_Rol_ModifiedBy" ColumnName="History_Rol_ModifiedBy" />
+          <ScalarProperty Name="History_Rol_isDeleted" ColumnName="History_Rol_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="History_Users">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.History_Users">
+        <MappingFragment StoreEntitySet="History_Users">
+          <ScalarProperty Name="History_User_ID" ColumnName="History_User_ID" />
+          <ScalarProperty Name="History_Usr_UserID" ColumnName="History_Usr_UserID" />
+          <ScalarProperty Name="History_Usr_AccountID" ColumnName="History_Usr_AccountID" />
+          <ScalarProperty Name="History_Usr_UserTypeID" ColumnName="History_Usr_UserTypeID" />
+          <ScalarProperty Name="History_Usr_RoleID" ColumnName="History_Usr_RoleID" />
+          <ScalarProperty Name="History_Usr_Manager" ColumnName="History_Usr_Manager" />
+          <ScalarProperty Name="History_Usr_Manager2" ColumnName="History_Usr_Manager2" />
+          <ScalarProperty Name="History_Usr_Username" ColumnName="History_Usr_Username" />
+          <ScalarProperty Name="History_Usr_LoginId" ColumnName="History_Usr_LoginId" />
+          <ScalarProperty Name="History_Usr_Password" ColumnName="History_Usr_Password" />
+          <ScalarProperty Name="History_Usr_ActiveStatus" ColumnName="History_Usr_ActiveStatus" />
+          <ScalarProperty Name="History_Usr_TaskID" ColumnName="History_Usr_TaskID" />
+          <ScalarProperty Name="History_Usr_Version" ColumnName="History_Usr_Version" />
+          <ScalarProperty Name="History_Usr_CreatedDate" ColumnName="History_Usr_CreatedDate" />
+          <ScalarProperty Name="History_Usr_CreatedBy" ColumnName="History_Usr_CreatedBy" />
+          <ScalarProperty Name="History_Usr_ModifiedDate" ColumnName="History_Usr_ModifiedDate" />
+          <ScalarProperty Name="History_Usr_ModifiedBy" ColumnName="History_Usr_ModifiedBy" />
+          <ScalarProperty Name="History_Usr_isDeleted" ColumnName="History_Usr_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="History_UserType">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.History_UserType">
+        <MappingFragment StoreEntitySet="History_UserType">
+          <ScalarProperty Name="History_UserType_ID" ColumnName="History_UserType_ID" />
+          <ScalarProperty Name="History_UsT_UserTypeID" ColumnName="History_UsT_UserTypeID" />
+          <ScalarProperty Name="History_UsT_AccountID" ColumnName="History_UsT_AccountID" />
+          <ScalarProperty Name="History_UsT_UserTypeCode" ColumnName="History_UsT_UserTypeCode" />
+          <ScalarProperty Name="History_UsT_UserType" ColumnName="History_UsT_UserType" />
+          <ScalarProperty Name="History_UsT_UserTypeDescription" ColumnName="History_UsT_UserTypeDescription" />
+          <ScalarProperty Name="History_UsT_ActiveStatus" ColumnName="History_UsT_ActiveStatus" />
+          <ScalarProperty Name="History_UsT_Version" ColumnName="History_UsT_Version" />
+          <ScalarProperty Name="History_UsT_CreatedDate" ColumnName="History_UsT_CreatedDate" />
+          <ScalarProperty Name="History_UsT_CreatedBy" ColumnName="History_UsT_CreatedBy" />
+          <ScalarProperty Name="History_UsT_ModifiedDate" ColumnName="History_UsT_ModifiedDate" />
+          <ScalarProperty Name="History_UsT_ModifiedBy" ColumnName="History_UsT_ModifiedBy" />
+          <ScalarProperty Name="History_UsT_isDeleted" ColumnName="History_UsT_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HolidayCalendars">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.HolidayCalendar">
+        <MappingFragment StoreEntitySet="HolidayCalendar">
+          <ScalarProperty Name="HolidayCalendarID" ColumnName="HolidayCalendarID" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="HolidayName" ColumnName="HolidayName" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="HolidayDate" ColumnName="HolidayDate" />
+          <ScalarProperty Name="isOptionalHoliday" ColumnName="isOptionalHoliday" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LeaveSchemes">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.LeaveScheme">
+        <MappingFragment StoreEntitySet="LeaveScheme">
+          <ScalarProperty Name="LSchm_LeaveSchemeID" ColumnName="LSchm_LeaveSchemeID" />
+          <ScalarProperty Name="LSchm_LeaveTypeID" ColumnName="LSchm_LeaveTypeID" />
+          <ScalarProperty Name="LSchm_UserTypeID" ColumnName="LSchm_UserTypeID" />
+          <ScalarProperty Name="LSchm_LeaveFrequency" ColumnName="LSchm_LeaveFrequency" />
+          <ScalarProperty Name="LSchm_AccountID" ColumnName="LSchm_AccountID" />
+          <ScalarProperty Name="LSchm_LeaveSchemeCode" ColumnName="LSchm_LeaveSchemeCode" />
+          <ScalarProperty Name="LSchm_LeaveScheme" ColumnName="LSchm_LeaveScheme" />
+          <ScalarProperty Name="LSchm_LeaveSchemeDescription" ColumnName="LSchm_LeaveSchemeDescription" />
+          <ScalarProperty Name="LSchm_LeaveCount" ColumnName="LSchm_LeaveCount" />
+          <ScalarProperty Name="LSchm_ActiveStatus" ColumnName="LSchm_ActiveStatus" />
+          <ScalarProperty Name="LSchm_Version" ColumnName="LSchm_Version" />
+          <ScalarProperty Name="LSchm_CreatedDate" ColumnName="LSchm_CreatedDate" />
+          <ScalarProperty Name="LSchm_CreatedBy" ColumnName="LSchm_CreatedBy" />
+          <ScalarProperty Name="LSchm_ModifiedDate" ColumnName="LSchm_ModifiedDate" />
+          <ScalarProperty Name="LSchm_ModifiedBy" ColumnName="LSchm_ModifiedBy" />
+          <ScalarProperty Name="LSchm_isDeleted" ColumnName="LSchm_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LeaveTypes">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.LeaveType">
+        <MappingFragment StoreEntitySet="LeaveType">
+          <ScalarProperty Name="LTyp_LeaveTypeID" ColumnName="LTyp_LeaveTypeID" />
+          <ScalarProperty Name="LTyp_AccountID" ColumnName="LTyp_AccountID" />
+          <ScalarProperty Name="LTyp_LeaveType" ColumnName="LTyp_LeaveType" />
+          <ScalarProperty Name="LTyp_LeaveTypeDescription" ColumnName="LTyp_LeaveTypeDescription" />
+          <ScalarProperty Name="LTyp_ActiveStatus" ColumnName="LTyp_ActiveStatus" />
+          <ScalarProperty Name="LTyp_Version" ColumnName="LTyp_Version" />
+          <ScalarProperty Name="LTyp_CreatedDate" ColumnName="LTyp_CreatedDate" />
+          <ScalarProperty Name="LTyp_CreatedBy" ColumnName="LTyp_CreatedBy" />
+          <ScalarProperty Name="LTyp_ModifiedDate" ColumnName="LTyp_ModifiedDate" />
+          <ScalarProperty Name="LTyp_ModifiedBy" ColumnName="LTyp_ModifiedBy" />
+          <ScalarProperty Name="LTyp_isDeleted" ColumnName="LTyp_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Master_Module">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.Master_Module">
+        <MappingFragment StoreEntitySet="Master_Module">
+          <ScalarProperty Name="Mod_ModuleID" ColumnName="Mod_ModuleID" />
+          <ScalarProperty Name="Mod_ModuleCode" ColumnName="Mod_ModuleCode" />
+          <ScalarProperty Name="Mod_ModuleName" ColumnName="Mod_ModuleName" />
+          <ScalarProperty Name="Mod_Description" ColumnName="Mod_Description" />
+          <ScalarProperty Name="Mod_ActiveStatus" ColumnName="Mod_ActiveStatus" />
+          <ScalarProperty Name="Mod_Version" ColumnName="Mod_Version" />
+          <ScalarProperty Name="Mod_CreatedDate" ColumnName="Mod_CreatedDate" />
+          <ScalarProperty Name="Mod_CreatedBy" ColumnName="Mod_CreatedBy" />
+          <ScalarProperty Name="Mod_ModifiedDate" ColumnName="Mod_ModifiedDate" />
+          <ScalarProperty Name="Mod_ModifiedBy" ColumnName="Mod_ModifiedBy" />
+          <ScalarProperty Name="Mod_isDeleted" ColumnName="Mod_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MobileNotificationTemplates">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.MobileNotificationTemplate">
+        <MappingFragment StoreEntitySet="MobileNotificationTemplate">
+          <ScalarProperty Name="MobileNotificationId" ColumnName="MobileNotificationId" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Phases">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.Phase">
+        <MappingFragment StoreEntitySet="Phases">
+          <ScalarProperty Name="PhaseId" ColumnName="PhaseId" />
+          <ScalarProperty Name="PhaseTitle" ColumnName="PhaseTitle" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Project_workstatus">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.Project_workstatus">
+        <MappingFragment StoreEntitySet="Project_workstatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="FromDT" ColumnName="FromDT" />
+          <ScalarProperty Name="ToDT" ColumnName="ToDT" />
+          <ScalarProperty Name="PercentageCompleted" ColumnName="PercentageCompleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectPhases">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.ProjectPhas">
+        <MappingFragment StoreEntitySet="ProjectPhases">
+          <ScalarProperty Name="Proj_PhaseId" ColumnName="Proj_PhaseId" />
+          <ScalarProperty Name="PhaseId" ColumnName="PhaseId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="Actual_StartDate" ColumnName="Actual_StartDate" />
+          <ScalarProperty Name="Actual_EndDate" ColumnName="Actual_EndDate" />
+          <ScalarProperty Name="Plan_StartDate" ColumnName="Plan_StartDate" />
+          <ScalarProperty Name="Plan_EndDate" ColumnName="Plan_EndDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.Project">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="Proj_ProjectID" ColumnName="Proj_ProjectID" />
+          <ScalarProperty Name="Proj_AccountID" ColumnName="Proj_AccountID" />
+          <ScalarProperty Name="Proj_ClientName" ColumnName="Proj_ClientName" />
+          <ScalarProperty Name="Proj_ProjectCode" ColumnName="Proj_ProjectCode" />
+          <ScalarProperty Name="Proj_ProjectName" ColumnName="Proj_ProjectName" />
+          <ScalarProperty Name="Proj_ProjectDescription" ColumnName="Proj_ProjectDescription" />
+          <ScalarProperty Name="Plan_StartDate" ColumnName="Plan_StartDate" />
+          <ScalarProperty Name="Plan_EndDate" ColumnName="Plan_EndDate" />
+          <ScalarProperty Name="Proj_ActiveStatus" ColumnName="Proj_ActiveStatus" />
+          <ScalarProperty Name="Proj_Version" ColumnName="Proj_Version" />
+          <ScalarProperty Name="Proj_CreatedDate" ColumnName="Proj_CreatedDate" />
+          <ScalarProperty Name="Proj_CreatedBy" ColumnName="Proj_CreatedBy" />
+          <ScalarProperty Name="Proj_ModifiedDate" ColumnName="Proj_ModifiedDate" />
+          <ScalarProperty Name="Proj_ModifiedBy" ColumnName="Proj_ModifiedBy" />
+          <ScalarProperty Name="Proj_isDeleted" ColumnName="Proj_isDeleted" />
+          <ScalarProperty Name="Actual_StartDate" ColumnName="Actual_StartDate" />
+          <ScalarProperty Name="Actual_EndDate" ColumnName="Actual_EndDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectSpecificTasks">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.ProjectSpecificTask">
+        <MappingFragment StoreEntitySet="ProjectSpecificTasks">
+          <ScalarProperty Name="Proj_SpecificTaskId" ColumnName="Proj_SpecificTaskId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="Proj_SpecificTaskName" ColumnName="Proj_SpecificTaskName" />
+          <ScalarProperty Name="RTMId" ColumnName="RTMId" />
+          <ScalarProperty Name="Actual_StartDate" ColumnName="Actual_StartDate" />
+          <ScalarProperty Name="Actual_EndDate" ColumnName="Actual_EndDate" />
+          <ScalarProperty Name="Plan_StartDate" ColumnName="Plan_StartDate" />
+          <ScalarProperty Name="Plan_EndDate" ColumnName="Plan_EndDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleModules">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.RoleModule">
+        <MappingFragment StoreEntitySet="RoleModules">
+          <ScalarProperty Name="RMod_RoleModuleID" ColumnName="RMod_RoleModuleID" />
+          <ScalarProperty Name="RMod_AccountID" ColumnName="RMod_AccountID" />
+          <ScalarProperty Name="RMod_RoleID" ColumnName="RMod_RoleID" />
+          <ScalarProperty Name="RMod_ModuleID" ColumnName="RMod_ModuleID" />
+          <ScalarProperty Name="RMod_HasAccess" ColumnName="RMod_HasAccess" />
+          <ScalarProperty Name="RMod_ActiveStatus" ColumnName="RMod_ActiveStatus" />
+          <ScalarProperty Name="RMod_Version" ColumnName="RMod_Version" />
+          <ScalarProperty Name="RMod_CreatedDate" ColumnName="RMod_CreatedDate" />
+          <ScalarProperty Name="RMod_CreatedBy" ColumnName="RMod_CreatedBy" />
+          <ScalarProperty Name="RMod_ModifiedDate" ColumnName="RMod_ModifiedDate" />
+          <ScalarProperty Name="RMod_ModifiedBy" ColumnName="RMod_ModifiedBy" />
+          <ScalarProperty Name="RMod_isDeleted" ColumnName="RMod_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Rol_RoleID" ColumnName="Rol_RoleID" />
+          <ScalarProperty Name="Rol_AccountID" ColumnName="Rol_AccountID" />
+          <ScalarProperty Name="Rol_RoleCode" ColumnName="Rol_RoleCode" />
+          <ScalarProperty Name="Rol_RoleName" ColumnName="Rol_RoleName" />
+          <ScalarProperty Name="Rol_RoleDescription" ColumnName="Rol_RoleDescription" />
+          <ScalarProperty Name="Rol_ActiveStatus" ColumnName="Rol_ActiveStatus" />
+          <ScalarProperty Name="Rol_Version" ColumnName="Rol_Version" />
+          <ScalarProperty Name="Rol_CreatedDate" ColumnName="Rol_CreatedDate" />
+          <ScalarProperty Name="Rol_createdBy" ColumnName="Rol_createdBy" />
+          <ScalarProperty Name="Rol_ModifiedDate" ColumnName="Rol_ModifiedDate" />
+          <ScalarProperty Name="Rol_ModifiedBy" ColumnName="Rol_ModifiedBy" />
+          <ScalarProperty Name="Rol_isDeleted" ColumnName="Rol_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskDetails">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.TaskDetail">
+        <MappingFragment StoreEntitySet="TaskDetails">
+          <ScalarProperty Name="TaskDetailsID" ColumnName="TaskDetailsID" />
+          <ScalarProperty Name="TimesheetID" ColumnName="TimesheetID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+          <ScalarProperty Name="HoursWorked" ColumnName="HoursWorked" />
+          <ScalarProperty Name="TaskDate" ColumnName="TaskDate" />
+          <ScalarProperty Name="Proj_SpecificTaskId" ColumnName="Proj_SpecificTaskId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIMESHEETs">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.TIMESHEET">
+        <MappingFragment StoreEntitySet="TIMESHEET">
+          <ScalarProperty Name="TimesheetID" ColumnName="TimesheetID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TaskDate" ColumnName="TaskDate" />
+          <ScalarProperty Name="TimesheetMonth" ColumnName="TimesheetMonth" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="SubmittedDate" ColumnName="SubmittedDate" />
+          <ScalarProperty Name="SubmittedType" ColumnName="SubmittedType" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="L1_Manager" ColumnName="L1_Manager" />
+          <ScalarProperty Name="L1_ApproverStatus" ColumnName="L1_ApproverStatus" />
+          <ScalarProperty Name="L1_ApproverDate" ColumnName="L1_ApproverDate" />
+          <ScalarProperty Name="L1_RejectedDate" ColumnName="L1_RejectedDate" />
+          <ScalarProperty Name="L2_Manager" ColumnName="L2_Manager" />
+          <ScalarProperty Name="L2_ApproverStatus" ColumnName="L2_ApproverStatus" />
+          <ScalarProperty Name="L2_ApproverDate" ColumnName="L2_ApproverDate" />
+          <ScalarProperty Name="L2_RejectedDate" ColumnName="L2_RejectedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProjectEngagements">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.UserProjectEngagement">
+        <MappingFragment StoreEntitySet="UserProjectEngagement">
+          <ScalarProperty Name="UserProj_EngId" ColumnName="UserProj_EngId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="tsk_TaskID" ColumnName="tsk_TaskID" />
+          <ScalarProperty Name="Proj_SpecificTaskId" ColumnName="Proj_SpecificTaskId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProjects">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.UserProject">
+        <MappingFragment StoreEntitySet="UserProjects">
+          <ScalarProperty Name="UProj_UserProjectID" ColumnName="UProj_UserProjectID" />
+          <ScalarProperty Name="UProj_ProjectID" ColumnName="UProj_ProjectID" />
+          <ScalarProperty Name="UProj_UserID" ColumnName="UProj_UserID" />
+          <ScalarProperty Name="UProj_StartDate" ColumnName="UProj_StartDate" />
+          <ScalarProperty Name="UProj_EndDate" ColumnName="UProj_EndDate" />
+          <ScalarProperty Name="UProj_ParticipationPercentage" ColumnName="UProj_ParticipationPercentage" />
+          <ScalarProperty Name="UProj_ActiveStatus" ColumnName="UProj_ActiveStatus" />
+          <ScalarProperty Name="UProj_Version" ColumnName="UProj_Version" />
+          <ScalarProperty Name="UProj_CreatedDate" ColumnName="UProj_CreatedDate" />
+          <ScalarProperty Name="UProj_CreatedBy" ColumnName="UProj_CreatedBy" />
+          <ScalarProperty Name="UProj_ModifiedDate" ColumnName="UProj_ModifiedDate" />
+          <ScalarProperty Name="UProj_ModifiedBy" ColumnName="UProj_ModifiedBy" />
+          <ScalarProperty Name="UProj_isDeleted" ColumnName="UProj_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Usr_UserID" ColumnName="Usr_UserID" />
+          <ScalarProperty Name="Usr_AccountID" ColumnName="Usr_AccountID" />
+          <ScalarProperty Name="Usr_UserTypeID" ColumnName="Usr_UserTypeID" />
+          <ScalarProperty Name="Usr_RoleID" ColumnName="Usr_RoleID" />
+          <ScalarProperty Name="Usr_Username" ColumnName="Usr_Username" />
+          <ScalarProperty Name="Usr_LoginId" ColumnName="Usr_LoginId" />
+          <ScalarProperty Name="Usr_Password" ColumnName="Usr_Password" />
+          <ScalarProperty Name="Usr_ActiveStatus" ColumnName="Usr_ActiveStatus" />
+          <ScalarProperty Name="Usr_TaskID" ColumnName="Usr_TaskID" />
+          <ScalarProperty Name="Usr_Version" ColumnName="Usr_Version" />
+          <ScalarProperty Name="Usr_salt" ColumnName="Usr_salt" />
+          <ScalarProperty Name="Usr_Manager" ColumnName="Usr_Manager" />
+          <ScalarProperty Name="Usr_Manager2" ColumnName="Usr_Manager2" />
+          <ScalarProperty Name="Usr_CreatedDate" ColumnName="Usr_CreatedDate" />
+          <ScalarProperty Name="Usr_CreatedBy" ColumnName="Usr_CreatedBy" />
+          <ScalarProperty Name="Usr_ModifiedDate" ColumnName="Usr_ModifiedDate" />
+          <ScalarProperty Name="Usr_ModifiedBy" ColumnName="Usr_ModifiedBy" />
+          <ScalarProperty Name="Usr_isDeleted" ColumnName="Usr_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersForProjects">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.UsersForProject">
+        <MappingFragment StoreEntitySet="UsersForProjects">
+          <ScalarProperty Name="Ufp_UsersForProjectsID" ColumnName="Ufp_UsersForProjectsID" />
+          <ScalarProperty Name="Ufp_ProjectID" ColumnName="Ufp_ProjectID" />
+          <ScalarProperty Name="Ufp_UserID" ColumnName="Ufp_UserID" />
+          <ScalarProperty Name="Ufp_StartDate" ColumnName="Ufp_StartDate" />
+          <ScalarProperty Name="Ufp_EndDate" ColumnName="Ufp_EndDate" />
+          <ScalarProperty Name="Ufp_ParticipationPercentage" ColumnName="Ufp_ParticipationPercentage" />
+          <ScalarProperty Name="Ufp_ActiveStatus" ColumnName="Ufp_ActiveStatus" />
+          <ScalarProperty Name="Ufp_Version" ColumnName="Ufp_Version" />
+          <ScalarProperty Name="Ufp_CreatedDate" ColumnName="Ufp_CreatedDate" />
+          <ScalarProperty Name="Ufp_CreatedBy" ColumnName="Ufp_CreatedBy" />
+          <ScalarProperty Name="Ufp_ModifiedDate" ColumnName="Ufp_ModifiedDate" />
+          <ScalarProperty Name="Ufp_ModifiedBy" ColumnName="Ufp_ModifiedBy" />
+          <ScalarProperty Name="Ufp_isDeleted" ColumnName="Ufp_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersProfiles">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.UsersProfile">
+        <MappingFragment StoreEntitySet="UsersProfile">
+          <ScalarProperty Name="UsrP_UserProfileID" ColumnName="UsrP_UserProfileID" />
+          <ScalarProperty Name="UsrP_UserID" ColumnName="UsrP_UserID" />
+          <ScalarProperty Name="UsrP_FirstName" ColumnName="UsrP_FirstName" />
+          <ScalarProperty Name="UsrP_LastName" ColumnName="UsrP_LastName" />
+          <ScalarProperty Name="UsrP_EmployeeID" ColumnName="UsrP_EmployeeID" />
+          <ScalarProperty Name="UsrP_EmailID" ColumnName="UsrP_EmailID" />
+          <ScalarProperty Name="Usrp_MobileNumber" ColumnName="Usrp_MobileNumber" />
+          <ScalarProperty Name="Usrp_PhoneNumber" ColumnName="Usrp_PhoneNumber" />
+          <ScalarProperty Name="Usrp_ProfilePicture" ColumnName="Usrp_ProfilePicture" />
+          <ScalarProperty Name="UsrP_DOB" ColumnName="UsrP_DOB" />
+          <ScalarProperty Name="Usrp_DOJ" ColumnName="Usrp_DOJ" />
+          <ScalarProperty Name="UsrP_ActiveStatus" ColumnName="UsrP_ActiveStatus" />
+          <ScalarProperty Name="UsrP_Version" ColumnName="UsrP_Version" />
+          <ScalarProperty Name="UsrP_CreatedDate" ColumnName="UsrP_CreatedDate" />
+          <ScalarProperty Name="UsrP_CreatedBy" ColumnName="UsrP_CreatedBy" />
+          <ScalarProperty Name="UsrP_ModifiedDate" ColumnName="UsrP_ModifiedDate" />
+          <ScalarProperty Name="UsrP_ModifiedBy" ColumnName="UsrP_ModifiedBy" />
+          <ScalarProperty Name="UsrP_isDeleted" ColumnName="UsrP_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTypes">
+      <EntityTypeMapping TypeName="EvolutyzCornerDBTestingModel.UserType">
+        <MappingFragment StoreEntitySet="UserType">
+          <ScalarProperty Name="UsT_UserTypeID" ColumnName="UsT_UserTypeID" />
+          <ScalarProperty Name="UsT_AccountID" ColumnName="UsT_AccountID" />
+          <ScalarProperty Name="UsT_UserTypeCode" ColumnName="UsT_UserTypeCode" />
+          <ScalarProperty Name="UsT_UserType" ColumnName="UsT_UserType" />
+          <ScalarProperty Name="UsT_UserTypeDescription" ColumnName="UsT_UserTypeDescription" />
+          <ScalarProperty Name="UsT_ActiveStatus" ColumnName="UsT_ActiveStatus" />
+          <ScalarProperty Name="UsT_Version" ColumnName="UsT_Version" />
+          <ScalarProperty Name="UsT_CreatedDate" ColumnName="UsT_CreatedDate" />
+          <ScalarProperty Name="UsT_CreatedBy" ColumnName="UsT_CreatedBy" />
+          <ScalarProperty Name="UsT_ModifiedDate" ColumnName="UsT_ModifiedDate" />
+          <ScalarProperty Name="UsT_ModifiedBy" ColumnName="UsT_ModifiedBy" />
+          <ScalarProperty Name="UsT_isDeleted" ColumnName="UsT_isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="EvolutyzCornerDBTestingModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,931 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EvolutyzCornerDBTestingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Acc_AccountID" />
+    </Key>
+    <Property Name="Acc_AccountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Acc_AccountCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Acc_AccountName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Acc_AccountDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="Acc_EmailID" Type="nvarchar" MaxLength="100" />
+    <Property Name="Acc_MobileNumber" Type="nvarchar" MaxLength="100" />
+    <Property Name="Acc_PhoneNumber" Type="nvarchar" MaxLength="100" />
+    <Property Name="Acc_CompanyLogo" Type="nvarchar" MaxLength="200" />
+    <Property Name="Acc_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="Acc_Version" Type="smallint" Nullable="false" />
+    <Property Name="Acc_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Acc_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="Acc_ModifiedDate" Type="datetime" />
+    <Property Name="Acc_ModifiedBy" Type="int" />
+    <Property Name="Acc_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailNotificationTemplate">
+    <Key>
+      <PropertyRef Name="EmailNotificationId" />
+    </Key>
+    <Property Name="EmailNotificationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Subject" Type="varchar" MaxLength="500" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="ErrorLogs">
+    <Key>
+      <PropertyRef Name="ErrorlogId" />
+    </Key>
+    <Property Name="ErrorlogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SourceName" Type="varchar" MaxLength="500" />
+    <Property Name="MethodName" Type="varchar" MaxLength="500" />
+    <Property Name="ErrorMessage" Type="varchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="GenericTasks">
+    <Key>
+      <PropertyRef Name="tsk_TaskID" />
+    </Key>
+    <Property Name="tsk_TaskID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tsk_TaskName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tsk_TaskDescription" Type="varchar" MaxLength="500" />
+    <Property Name="tsk_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="tsk_Version" Type="smallint" Nullable="false" />
+    <Property Name="tsk_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="tsk_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="tsk_ModifiedDate" Type="datetime" />
+    <Property Name="tsk_ModifiedBy" Type="int" />
+    <Property Name="tsk_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="History_Account">
+    <Key>
+      <PropertyRef Name="History_Account_AccountID" />
+    </Key>
+    <Property Name="History_Account_AccountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="History_Acc_AccountID" Type="int" Nullable="false" />
+    <Property Name="History_Acc_AccountCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="History_Acc_AccountName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="History_Acc_AccountDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="History_Acc_EmailID" Type="nvarchar" MaxLength="100" />
+    <Property Name="History_Acc_MobileNumber" Type="nvarchar" MaxLength="100" />
+    <Property Name="History_Acc_PhoneNumber" Type="nvarchar" MaxLength="100" />
+    <Property Name="History_Acc_CompanyLogo" Type="nvarchar" MaxLength="200" />
+    <Property Name="History_Acc_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="History_Acc_Version" Type="smallint" Nullable="false" />
+    <Property Name="History_Acc_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="History_Acc_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="History_Acc_ModifiedDate" Type="datetime" />
+    <Property Name="History_Acc_ModifiedBy" Type="int" />
+    <Property Name="History_Acc_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="History_LeaveScheme">
+    <Key>
+      <PropertyRef Name="History_LeaveScheme_ID" />
+    </Key>
+    <Property Name="History_LeaveScheme_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="History_LSchm_LeaveSchemeID" Type="int" Nullable="false" />
+    <Property Name="History_LSchm_LeaveTypeID" Type="int" Nullable="false" />
+    <Property Name="History_LSchm_UserTypeID" Type="int" Nullable="false" />
+    <Property Name="History_LSchm_LeaveFrequency" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="History_LSchm_AccountID" Type="int" Nullable="false" />
+    <Property Name="History_LSchm_LeaveSchemeCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="History_LSchm_LeaveScheme" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="History_LSchm_LeaveSchemeDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="History_LSchm_LeaveCount" Type="smallint" Nullable="false" />
+    <Property Name="History_LSchm_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="History_LSchm_Version" Type="smallint" Nullable="false" />
+    <Property Name="History_LSchm_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="History_LSchm_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="History_LSchm_ModifiedDate" Type="datetime" />
+    <Property Name="History_LSchm_ModifiedBy" Type="int" />
+    <Property Name="History_LSchm_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="History_LeaveType">
+    <Key>
+      <PropertyRef Name="History_LeaveType_ID" />
+    </Key>
+    <Property Name="History_LeaveType_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="History_LTyp_LeaveTypeID" Type="int" Nullable="false" />
+    <Property Name="History_LTyp_AccountID" Type="int" Nullable="false" />
+    <Property Name="History_LTyp_LeaveType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="History_LTyp_LeaveTypeDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="History_LTyp_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="History_LTyp_Version" Type="smallint" Nullable="false" />
+    <Property Name="History_LTyp_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="History_LTyp_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="History_LTyp_ModifiedDate" Type="datetime" />
+    <Property Name="History_LTyp_ModifiedBy" Type="int" />
+    <Property Name="History_LTyp_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="History_Projects">
+    <Key>
+      <PropertyRef Name="History_Project_ID" />
+    </Key>
+    <Property Name="History_Project_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="History_Proj_ProjectID" Type="int" Nullable="false" />
+    <Property Name="History_Proj_AccountID" Type="int" Nullable="false" />
+    <Property Name="History_Proj_ProjectCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="History_Proj_ProjectName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="History_Proj_ProjectDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="History_Proj_StartDate" Type="datetime" Nullable="false" />
+    <Property Name="History_Proj_EndDate" Type="datetime" />
+    <Property Name="History_Proj_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="History_Proj_Version" Type="smallint" Nullable="false" />
+    <Property Name="History_Proj_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="History_Proj_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="History_Proj_ModifiedDate" Type="datetime" />
+    <Property Name="History_Proj_ModifiedBy" Type="int" />
+    <Property Name="History_Proj_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="History_Role">
+    <Key>
+      <PropertyRef Name="History_Role_ID" />
+    </Key>
+    <Property Name="History_Role_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="History_Rol_RoleID" Type="int" Nullable="false" />
+    <Property Name="History_Rol_AccountID" Type="int" Nullable="false" />
+    <Property Name="History_Rol_RoleCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="History_Rol_RoleName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="History_Rol_RoleDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="History_Rol_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="History_Rol_Version" Type="int" Nullable="false" />
+    <Property Name="History_Rol_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="History_Rol_createdBy" Type="int" Nullable="false" />
+    <Property Name="History_Rol_ModifiedDate" Type="datetime" />
+    <Property Name="History_Rol_ModifiedBy" Type="int" />
+    <Property Name="History_Rol_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="History_Users">
+    <Key>
+      <PropertyRef Name="History_User_ID" />
+    </Key>
+    <Property Name="History_User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="History_Usr_UserID" Type="int" Nullable="false" />
+    <Property Name="History_Usr_AccountID" Type="int" Nullable="false" />
+    <Property Name="History_Usr_UserTypeID" Type="int" Nullable="false" />
+    <Property Name="History_Usr_RoleID" Type="int" Nullable="false" />
+    <Property Name="History_Usr_Manager" Type="int" />
+    <Property Name="History_Usr_Manager2" Type="int" />
+    <Property Name="History_Usr_Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="History_Usr_LoginId" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="History_Usr_Password" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="History_Usr_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="History_Usr_TaskID" Type="int" />
+    <Property Name="History_Usr_Version" Type="smallint" Nullable="false" />
+    <Property Name="History_Usr_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="History_Usr_CreatedBy" Type="int" />
+    <Property Name="History_Usr_ModifiedDate" Type="datetime" />
+    <Property Name="History_Usr_ModifiedBy" Type="int" />
+    <Property Name="History_Usr_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="History_UserType">
+    <Key>
+      <PropertyRef Name="History_UserType_ID" />
+    </Key>
+    <Property Name="History_UserType_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="History_UsT_UserTypeID" Type="int" Nullable="false" />
+    <Property Name="History_UsT_AccountID" Type="int" Nullable="false" />
+    <Property Name="History_UsT_UserTypeCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="History_UsT_UserType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="History_UsT_UserTypeDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="History_UsT_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="History_UsT_Version" Type="int" Nullable="false" />
+    <Property Name="History_UsT_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="History_UsT_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="History_UsT_ModifiedDate" Type="datetime" />
+    <Property Name="History_UsT_ModifiedBy" Type="int" />
+    <Property Name="History_UsT_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HolidayCalendar">
+    <Key>
+      <PropertyRef Name="HolidayCalendarID" />
+    </Key>
+    <Property Name="HolidayCalendarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountID" Type="int" Nullable="false" />
+    <Property Name="HolidayName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Year" Type="smallint" Nullable="false" />
+    <Property Name="HolidayDate" Type="date" Nullable="false" />
+    <Property Name="isOptionalHoliday" Type="bit" Nullable="false" />
+    <Property Name="isActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="date" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LeaveScheme">
+    <Key>
+      <PropertyRef Name="LSchm_LeaveSchemeID" />
+    </Key>
+    <Property Name="LSchm_LeaveSchemeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LSchm_LeaveTypeID" Type="int" Nullable="false" />
+    <Property Name="LSchm_UserTypeID" Type="int" Nullable="false" />
+    <Property Name="LSchm_LeaveFrequency" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LSchm_AccountID" Type="int" Nullable="false" />
+    <Property Name="LSchm_LeaveSchemeCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LSchm_LeaveScheme" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LSchm_LeaveSchemeDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="LSchm_LeaveCount" Type="smallint" Nullable="false" />
+    <Property Name="LSchm_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="LSchm_Version" Type="smallint" Nullable="false" />
+    <Property Name="LSchm_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LSchm_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="LSchm_ModifiedDate" Type="datetime" />
+    <Property Name="LSchm_ModifiedBy" Type="int" />
+    <Property Name="LSchm_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LeaveType">
+    <Key>
+      <PropertyRef Name="LTyp_LeaveTypeID" />
+    </Key>
+    <Property Name="LTyp_LeaveTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LTyp_AccountID" Type="int" Nullable="false" />
+    <Property Name="LTyp_LeaveType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LTyp_LeaveTypeDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="LTyp_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="LTyp_Version" Type="smallint" Nullable="false" />
+    <Property Name="LTyp_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LTyp_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="LTyp_ModifiedDate" Type="datetime" />
+    <Property Name="LTyp_ModifiedBy" Type="int" />
+    <Property Name="LTyp_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Master_Module">
+    <Key>
+      <PropertyRef Name="Mod_ModuleID" />
+    </Key>
+    <Property Name="Mod_ModuleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mod_ModuleCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mod_ModuleName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Mod_Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Mod_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="Mod_Version" Type="smallint" Nullable="false" />
+    <Property Name="Mod_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Mod_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="Mod_ModifiedDate" Type="datetime" />
+    <Property Name="Mod_ModifiedBy" Type="int" />
+    <Property Name="Mod_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MobileNotificationTemplate">
+    <Key>
+      <PropertyRef Name="MobileNotificationId" />
+    </Key>
+    <Property Name="MobileNotificationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Subject" Type="varchar" MaxLength="500" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Phases">
+    <Key>
+      <PropertyRef Name="PhaseId" />
+    </Key>
+    <Property Name="PhaseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PhaseTitle" Type="varchar" MaxLength="250" />
+    <Property Name="ShortDescription" Type="varchar" MaxLength="500" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Project_workstatus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectName" Type="varchar" MaxLength="100" />
+    <Property Name="UserName" Type="varchar" MaxLength="100" />
+    <Property Name="FromDT" Type="datetime" />
+    <Property Name="ToDT" Type="datetime" />
+    <Property Name="PercentageCompleted" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="ProjectPhases">
+    <Key>
+      <PropertyRef Name="Proj_PhaseId" />
+    </Key>
+    <Property Name="Proj_PhaseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PhaseId" Type="int" />
+    <Property Name="ProjectId" Type="int" />
+    <Property Name="Actual_StartDate" Type="datetime" />
+    <Property Name="Actual_EndDate" Type="datetime" />
+    <Property Name="Plan_StartDate" Type="datetime" />
+    <Property Name="Plan_EndDate" Type="datetime" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="Proj_ProjectID" />
+    </Key>
+    <Property Name="Proj_ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Proj_AccountID" Type="int" Nullable="false" />
+    <Property Name="Proj_ClientName" Type="varchar" MaxLength="50" />
+    <Property Name="Proj_ProjectCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Proj_ProjectName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Proj_ProjectDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="Plan_StartDate" Type="datetime" Nullable="false" />
+    <Property Name="Plan_EndDate" Type="datetime" />
+    <Property Name="Proj_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="Proj_Version" Type="smallint" Nullable="false" />
+    <Property Name="Proj_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Proj_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="Proj_ModifiedDate" Type="datetime" />
+    <Property Name="Proj_ModifiedBy" Type="int" />
+    <Property Name="Proj_isDeleted" Type="bit" Nullable="false" />
+    <Property Name="Actual_StartDate" Type="datetime" />
+    <Property Name="Actual_EndDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ProjectSpecificTasks">
+    <Key>
+      <PropertyRef Name="Proj_SpecificTaskId" />
+    </Key>
+    <Property Name="Proj_SpecificTaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectId" Type="int" />
+    <Property Name="Proj_SpecificTaskName" Type="varchar" MaxLength="100" />
+    <Property Name="RTMId" Type="varchar" MaxLength="100" />
+    <Property Name="Actual_StartDate" Type="datetime" />
+    <Property Name="Actual_EndDate" Type="datetime" />
+    <Property Name="Plan_StartDate" Type="datetime" />
+    <Property Name="Plan_EndDate" Type="datetime" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="RoleModules">
+    <Key>
+      <PropertyRef Name="RMod_RoleModuleID" />
+    </Key>
+    <Property Name="RMod_RoleModuleID" Type="int" Nullable="false" />
+    <Property Name="RMod_AccountID" Type="int" Nullable="false" />
+    <Property Name="RMod_RoleID" Type="int" Nullable="false" />
+    <Property Name="RMod_ModuleID" Type="int" Nullable="false" />
+    <Property Name="RMod_HasAccess" Type="bit" Nullable="false" />
+    <Property Name="RMod_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="RMod_Version" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RMod_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="RMod_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="RMod_ModifiedDate" Type="datetime" />
+    <Property Name="RMod_ModifiedBy" Type="int" />
+    <Property Name="RMod_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Rol_RoleID" />
+    </Key>
+    <Property Name="Rol_RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rol_AccountID" Type="int" Nullable="false" />
+    <Property Name="Rol_RoleCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rol_RoleName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Rol_RoleDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="Rol_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="Rol_Version" Type="int" Nullable="false" />
+    <Property Name="Rol_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Rol_createdBy" Type="int" Nullable="false" />
+    <Property Name="Rol_ModifiedDate" Type="datetime" />
+    <Property Name="Rol_ModifiedBy" Type="int" />
+    <Property Name="Rol_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaskDetails">
+    <Key>
+      <PropertyRef Name="TaskDetailsID" />
+    </Key>
+    <Property Name="TaskDetailsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TimesheetID" Type="int" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="TaskID" Type="int" Nullable="false" />
+    <Property Name="HoursWorked" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TaskDate" Type="date" />
+    <Property Name="Proj_SpecificTaskId" Type="int" />
+  </EntityType>
+  <EntityType Name="TIMESHEET">
+    <Key>
+      <PropertyRef Name="TimesheetID" />
+    </Key>
+    <Property Name="TimesheetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="TaskDate" Type="date" />
+    <Property Name="TimesheetMonth" Type="date" Nullable="false" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="TaskId" Type="varchar" MaxLength="100" />
+    <Property Name="SubmittedDate" Type="datetime" />
+    <Property Name="SubmittedType" Type="bit" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="L1_Manager" Type="nvarchar" MaxLength="10" />
+    <Property Name="L1_ApproverStatus" Type="bit" />
+    <Property Name="L1_ApproverDate" Type="date" />
+    <Property Name="L1_RejectedDate" Type="date" />
+    <Property Name="L2_Manager" Type="nvarchar" MaxLength="10" />
+    <Property Name="L2_ApproverStatus" Type="bit" />
+    <Property Name="L2_ApproverDate" Type="date" />
+    <Property Name="L2_RejectedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="UserProjectEngagement">
+    <Key>
+      <PropertyRef Name="UserProj_EngId" />
+    </Key>
+    <Property Name="UserProj_EngId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="ProjectId" Type="int" />
+    <Property Name="tsk_TaskID" Type="int" />
+    <Property Name="Proj_SpecificTaskId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="UserProjects">
+    <Key>
+      <PropertyRef Name="UProj_UserProjectID" />
+    </Key>
+    <Property Name="UProj_UserProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UProj_ProjectID" Type="int" Nullable="false" />
+    <Property Name="UProj_UserID" Type="int" Nullable="false" />
+    <Property Name="UProj_StartDate" Type="datetime" Nullable="false" />
+    <Property Name="UProj_EndDate" Type="datetime" />
+    <Property Name="UProj_ParticipationPercentage" Type="tinyint" Nullable="false" />
+    <Property Name="UProj_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="UProj_Version" Type="smallint" Nullable="false" />
+    <Property Name="UProj_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UProj_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="UProj_ModifiedDate" Type="datetime" />
+    <Property Name="UProj_ModifiedBy" Type="int" />
+    <Property Name="UProj_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Usr_UserID" />
+    </Key>
+    <Property Name="Usr_UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Usr_AccountID" Type="int" Nullable="false" />
+    <Property Name="Usr_UserTypeID" Type="int" Nullable="false" />
+    <Property Name="Usr_RoleID" Type="int" Nullable="false" />
+    <Property Name="Usr_Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="Usr_LoginId" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Usr_Password" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Usr_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="Usr_TaskID" Type="int" />
+    <Property Name="Usr_Version" Type="smallint" Nullable="false" />
+    <Property Name="Usr_salt" Type="nvarchar(max)" />
+    <Property Name="Usr_Manager" Type="int" />
+    <Property Name="Usr_Manager2" Type="int" />
+    <Property Name="Usr_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Usr_CreatedBy" Type="int" />
+    <Property Name="Usr_ModifiedDate" Type="datetime" />
+    <Property Name="Usr_ModifiedBy" Type="int" />
+    <Property Name="Usr_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersForProjects">
+    <Key>
+      <PropertyRef Name="Ufp_UsersForProjectsID" />
+    </Key>
+    <Property Name="Ufp_UsersForProjectsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ufp_ProjectID" Type="int" Nullable="false" />
+    <Property Name="Ufp_UserID" Type="int" Nullable="false" />
+    <Property Name="Ufp_StartDate" Type="datetime" Nullable="false" />
+    <Property Name="Ufp_EndDate" Type="datetime" />
+    <Property Name="Ufp_ParticipationPercentage" Type="int" />
+    <Property Name="Ufp_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="Ufp_Version" Type="smallint" Nullable="false" />
+    <Property Name="Ufp_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Ufp_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="Ufp_ModifiedDate" Type="datetime" />
+    <Property Name="Ufp_ModifiedBy" Type="int" />
+    <Property Name="Ufp_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersProfile">
+    <Key>
+      <PropertyRef Name="UsrP_UserProfileID" />
+    </Key>
+    <Property Name="UsrP_UserProfileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UsrP_UserID" Type="int" Nullable="false" />
+    <Property Name="UsrP_FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UsrP_LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UsrP_EmployeeID" Type="nvarchar" MaxLength="100" />
+    <Property Name="UsrP_EmailID" Type="nvarchar" MaxLength="100" />
+    <Property Name="Usrp_MobileNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Usrp_PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Usrp_ProfilePicture" Type="nvarchar" MaxLength="200" />
+    <Property Name="UsrP_DOB" Type="datetime" />
+    <Property Name="Usrp_DOJ" Type="datetime" />
+    <Property Name="UsrP_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="UsrP_Version" Type="smallint" Nullable="false" />
+    <Property Name="UsrP_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UsrP_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="UsrP_ModifiedDate" Type="datetime" />
+    <Property Name="UsrP_ModifiedBy" Type="int" />
+    <Property Name="UsrP_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="UsT_UserTypeID" />
+    </Key>
+    <Property Name="UsT_UserTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UsT_AccountID" Type="int" Nullable="false" />
+    <Property Name="UsT_UserTypeCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UsT_UserType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UsT_UserTypeDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="UsT_ActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="UsT_Version" Type="int" Nullable="false" />
+    <Property Name="UsT_CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UsT_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="UsT_ModifiedDate" Type="datetime" />
+    <Property Name="UsT_ModifiedBy" Type="int" />
+    <Property Name="UsT_isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__HolidayCa__Accou__7D439ABD">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="HolidayCalendar" Type="Self.HolidayCalendar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Acc_AccountID" />
+      </Principal>
+      <Dependent Role="HolidayCalendar">
+        <PropertyRef Name="AccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HolidayCa__Creat__7E37BEF6">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="HolidayCalendar" Type="Self.HolidayCalendar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usr_UserID" />
+      </Principal>
+      <Dependent Role="HolidayCalendar">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HolidayCa__Modif__7F2BE32F">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="HolidayCalendar" Type="Self.HolidayCalendar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usr_UserID" />
+      </Principal>
+      <Dependent Role="HolidayCalendar">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__taskdetai__taski__06CD04F7">
+    <End Role="GenericTasks" Type="Self.GenericTasks" Multiplicity="1" />
+    <End Role="TaskDetails" Type="Self.TaskDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenericTasks">
+        <PropertyRef Name="tsk_TaskID" />
+      </Principal>
+      <Dependent Role="TaskDetails">
+        <PropertyRef Name="TaskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Account_Acc_CreatedBy">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usr_UserID" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="Acc_CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleModule_Master_Module">
+    <End Role="Master_Module" Type="Self.Master_Module" Multiplicity="1" />
+    <End Role="RoleModules" Type="Self.RoleModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Master_Module">
+        <PropertyRef Name="Mod_ModuleID" />
+      </Principal>
+      <Dependent Role="RoleModules">
+        <PropertyRef Name="RMod_ModuleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleModule_Master_Role">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="RoleModules" Type="Self.RoleModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Rol_RoleID" />
+      </Principal>
+      <Dependent Role="RoleModules">
+        <PropertyRef Name="RMod_RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Roles_AccountID">
+    <End Role="Account" Type="Self.Account" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Acc_AccountID" />
+      </Principal>
+      <Dependent Role="Roles">
+        <PropertyRef Name="Rol_AccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Roles_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Roles1" Type="Self.Roles" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Rol_RoleID" />
+      </Principal>
+      <Dependent Role="Roles1">
+        <PropertyRef Name="Rol_RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_AccountID">
+    <End Role="Account" Type="Self.Account" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Acc_AccountID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Usr_AccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_RoleID">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Rol_RoleID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Usr_RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_UserTypeID">
+    <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="UsT_UserTypeID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Usr_UserTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersProfile_Master_User1">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UsersProfile" Type="Self.UsersProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usr_UserID" />
+      </Principal>
+      <Dependent Role="UsersProfile">
+        <PropertyRef Name="UsrP_UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserType_AccountID">
+    <End Role="Account" Type="Self.Account" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserType" Type="Self.UserType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Acc_AccountID" />
+      </Principal>
+      <Dependent Role="UserType">
+        <PropertyRef Name="UsT_AccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EvolutyzCornerDBTestingModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailNotificationTemplate" EntityType="Self.EmailNotificationTemplate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ErrorLogs" EntityType="Self.ErrorLogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GenericTasks" EntityType="Self.GenericTasks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="History_Account" EntityType="Self.History_Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="History_LeaveScheme" EntityType="Self.History_LeaveScheme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="History_LeaveType" EntityType="Self.History_LeaveType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="History_Projects" EntityType="Self.History_Projects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="History_Role" EntityType="Self.History_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="History_Users" EntityType="Self.History_Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="History_UserType" EntityType="Self.History_UserType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HolidayCalendar" EntityType="Self.HolidayCalendar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LeaveScheme" EntityType="Self.LeaveScheme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LeaveType" EntityType="Self.LeaveType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Master_Module" EntityType="Self.Master_Module" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MobileNotificationTemplate" EntityType="Self.MobileNotificationTemplate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Phases" EntityType="Self.Phases" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project_workstatus" EntityType="Self.Project_workstatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectPhases" EntityType="Self.ProjectPhases" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectSpecificTasks" EntityType="Self.ProjectSpecificTasks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoleModules" EntityType="Self.RoleModules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaskDetails" EntityType="Self.TaskDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIMESHEET" EntityType="Self.TIMESHEET" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProjectEngagement" EntityType="Self.UserProjectEngagement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProjects" EntityType="Self.UserProjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersForProjects" EntityType="Self.UsersForProjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersProfile" EntityType="Self.UsersProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__HolidayCa__Accou__7D439ABD" Association="Self.FK__HolidayCa__Accou__7D439ABD">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="HolidayCalendar" EntitySet="HolidayCalendar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HolidayCa__Creat__7E37BEF6" Association="Self.FK__HolidayCa__Creat__7E37BEF6">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="HolidayCalendar" EntitySet="HolidayCalendar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HolidayCa__Modif__7F2BE32F" Association="Self.FK__HolidayCa__Modif__7F2BE32F">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="HolidayCalendar" EntitySet="HolidayCalendar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__taskdetai__taski__06CD04F7" Association="Self.FK__taskdetai__taski__06CD04F7">
+      <End Role="GenericTasks" EntitySet="GenericTasks" />
+      <End Role="TaskDetails" EntitySet="TaskDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Account_Acc_CreatedBy" Association="Self.FK_Account_Acc_CreatedBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Account" EntitySet="Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleModule_Master_Module" Association="Self.FK_RoleModule_Master_Module">
+      <End Role="Master_Module" EntitySet="Master_Module" />
+      <End Role="RoleModules" EntitySet="RoleModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleModule_Master_Role" Association="Self.FK_RoleModule_Master_Role">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="RoleModules" EntitySet="RoleModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Roles_AccountID" Association="Self.FK_Roles_AccountID">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Roles" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Roles_Roles" Association="Self.FK_Roles_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Roles1" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_AccountID" Association="Self.FK_Users_AccountID">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_RoleID" Association="Self.FK_Users_RoleID">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_UserTypeID" Association="Self.FK_Users_UserTypeID">
+      <End Role="UserType" EntitySet="UserType" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersProfile_Master_User1" Association="Self.FK_UsersProfile_Master_User1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UsersProfile" EntitySet="UsersProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserType_AccountID" Association="Self.FK_UserType_AccountID">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="UserType" EntitySet="UserType" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

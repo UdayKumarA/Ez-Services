@@ -1,0 +1,653 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MedicalDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="CountryMaster">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DepartmentDoctor">
+    <Key>
+      <PropertyRef Name="DepartmentDoctorAutoId" />
+    </Key>
+    <Property Name="DepartmentDoctorAutoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DoctorId" Type="Int32" />
+    <Property Name="DepartmentId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DepartmentMaster">
+    <Key>
+      <PropertyRef Name="DepartmentAutoId" />
+    </Key>
+    <Property Name="DepartmentAutoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DoctorMaster">
+    <Key>
+      <PropertyRef Name="DoctorAutoId" />
+    </Key>
+    <Property Name="DoctorAutoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DoctorLName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="DoctorFName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="DoctorNPI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DoctorStreetAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DoctorAddressLine2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DoctorCity" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="DoctorState" Type="Int32" />
+    <Property Name="DoctorCountry" Type="Int32" />
+    <Property Name="DoctorZipCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="DoctorWorkPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DoctorHomePhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DoctorMobilePhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DoctorEmail" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="FacilityDoctor">
+    <Key>
+      <PropertyRef Name="FacilityDoctorAutoId" />
+    </Key>
+    <Property Name="FacilityDoctorAutoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DoctorId" Type="Int32" Nullable="false" />
+    <Property Name="FacilityId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FacilityMaster">
+    <Key>
+      <PropertyRef Name="FacilityAutoId" />
+    </Key>
+    <Property Name="FacilityAutoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FacilityName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="FStreetAdress" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="FAdressLine2" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="FCity" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="FCountryID" Type="Int32" />
+    <Property Name="FStateID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="FacilityUserProfile">
+    <Key>
+      <PropertyRef Name="FacilityUserId" />
+    </Key>
+    <Property Name="FacilityUserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FacilityUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FacilityPassWord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="FeedBackMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FacilityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateAdded" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PersonLinq">
+    <Key>
+      <PropertyRef Name="PersonAutoID" />
+    </Key>
+    <Property Name="PersonAutoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonAge" Type="Int32" />
+    <Property Name="PersonJob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PersonMaster">
+    <Key>
+      <PropertyRef Name="PersonAutoID" />
+    </Key>
+    <Property Name="PersonAutoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonLName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="PersonFName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="Boolean" />
+    <Property Name="DateofBirth" Type="DateTime" Precision="0" />
+    <Property Name="EmergencyContactFName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="EmergencyContactLName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Relationship" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="StreetAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="StateID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="PostalCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="CountryID" Type="Int32" />
+    <Property Name="HomePhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="WorkPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="HospitalPreferences" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="InsuranceCompany" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="PolicyNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PhysicanName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HospitalPhoneNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Allergies_SpecialHealthConsiderations" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ProfilePhotoPath" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="PassWord" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StateMaster">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CountryId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Batch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="School" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Domicile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StudentMaster">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Batch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="School" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Domicile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CityMaster">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StateId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="MedicalDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="CountryMasters" EntityType="Self.CountryMaster" />
+    <EntitySet Name="DepartmentDoctors" EntityType="Self.DepartmentDoctor" />
+    <EntitySet Name="DepartmentMasters" EntityType="Self.DepartmentMaster" />
+    <EntitySet Name="DoctorMasters" EntityType="Self.DoctorMaster" />
+    <EntitySet Name="FacilityDoctors" EntityType="Self.FacilityDoctor" />
+    <EntitySet Name="FacilityMasters" EntityType="Self.FacilityMaster" />
+    <EntitySet Name="FacilityUserProfiles" EntityType="Self.FacilityUserProfile" />
+    <EntitySet Name="FeedBackMasters" EntityType="Self.FeedBackMaster" />
+    <EntitySet Name="PersonLinqs" EntityType="Self.PersonLinq" />
+    <EntitySet Name="PersonMasters" EntityType="Self.PersonMaster" />
+    <EntitySet Name="StateMasters" EntityType="Self.StateMaster" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="StudentMasters" EntityType="Self.StudentMaster" />
+    <EntitySet Name="CityMasters" EntityType="Self.CityMaster" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <FunctionImport Name="DepartmentMasterAdd">
+      <Parameter Name="vDepartmentName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DepartmentMasterAutoCompleteByDeptName" ReturnType="Collection(MedicalDBModel.DepartmentMasterAutoCompleteByDeptName_Result)">
+      <Parameter Name="vDepartmentName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DepartmentMasterDelete">
+      <Parameter Name="iDepartmentAutoId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DepartmentMasterGetAll" ReturnType="Collection(MedicalDBModel.DepartmentMasterGetAll_Result)" />
+    <FunctionImport Name="DepartmentMasterGetById" ReturnType="Collection(MedicalDBModel.DepartmentMasterGetById_Result)">
+      <Parameter Name="iDepartmentAutoId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DepartmentMasterGetByName" ReturnType="Collection(MedicalDBModel.DepartmentMasterGetByName_Result)">
+      <Parameter Name="vDepartmentName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DepartmentMasterUpdate">
+      <Parameter Name="iDepartmentAutoId" Mode="In" Type="Int32" />
+      <Parameter Name="vDepartmentName" Mode="In" Type="String" />
+      <Parameter Name="UpdatedTime" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="DocotorMasterUpdate">
+      <Parameter Name="iDoctorAutoId" Mode="In" Type="Int32" />
+      <Parameter Name="vDoctorLName" Mode="In" Type="String" />
+      <Parameter Name="vDoctorFName" Mode="In" Type="String" />
+      <Parameter Name="vDoctorNPI" Mode="In" Type="String" />
+      <Parameter Name="vDoctorStreetAddress" Mode="In" Type="String" />
+      <Parameter Name="vDoctorAddressLine2" Mode="In" Type="String" />
+      <Parameter Name="vDoctorCity" Mode="In" Type="String" />
+      <Parameter Name="iDoctorState" Mode="In" Type="Int32" />
+      <Parameter Name="iDoctorCountry" Mode="In" Type="Int32" />
+      <Parameter Name="vDoctorZipCode" Mode="In" Type="String" />
+      <Parameter Name="vDoctorWorkPhone" Mode="In" Type="String" />
+      <Parameter Name="vDoctorHomePhone" Mode="In" Type="String" />
+      <Parameter Name="vDoctorMobilePhone" Mode="In" Type="String" />
+      <Parameter Name="vDoctorEmail" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DoctorAndDepartmentsListById">
+      <Parameter Name="iDoctorId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DoctorAndDepartmentsSearchById">
+      <Parameter Name="iDoctorId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DoctorFacilitiesListById" ReturnType="Collection(String)">
+      <Parameter Name="iDoctorId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DoctorMasterAdd">
+      <Parameter Name="vDoctorLName" Mode="In" Type="String" />
+      <Parameter Name="vDoctorFName" Mode="In" Type="String" />
+      <Parameter Name="vDoctorNPI" Mode="In" Type="String" />
+      <Parameter Name="vDoctorStreetAddress" Mode="In" Type="String" />
+      <Parameter Name="vDoctorAddressLine2" Mode="In" Type="String" />
+      <Parameter Name="vDoctorCity" Mode="In" Type="String" />
+      <Parameter Name="iDoctorState" Mode="In" Type="Int32" />
+      <Parameter Name="iDoctorCountry" Mode="In" Type="Int32" />
+      <Parameter Name="vDoctorZipCode" Mode="In" Type="String" />
+      <Parameter Name="vDoctorWorkPhone" Mode="In" Type="String" />
+      <Parameter Name="vDoctorHomePhone" Mode="In" Type="String" />
+      <Parameter Name="vDoctorMobilePhone" Mode="In" Type="String" />
+      <Parameter Name="vDoctorEmail" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DoctorMasterDeleteById">
+      <Parameter Name="iDoctorAutoId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DoctorMasterGetAll" ReturnType="Collection(MedicalDBModel.DoctorMasterGetAll_Result)" />
+    <FunctionImport Name="DoctorMasterSearchById" ReturnType="Collection(MedicalDBModel.DoctorMasterSearchById_Result)">
+      <Parameter Name="iDoctorAutoId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DoctorMasterSearchByName" ReturnType="Collection(MedicalDBModel.DoctorMasterSearchByName_Result)">
+      <Parameter Name="vDoctorLName" Mode="In" Type="String" />
+      <Parameter Name="vDoctorFName" Mode="In" Type="String" />
+      <Parameter Name="vDoctorNPI" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DoctorsAndDepartmentsAdd">
+      <Parameter Name="iDoctorId" Mode="In" Type="Int32" />
+      <Parameter Name="iDepartmentId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DoctorsAndDepartmentsDelete">
+      <Parameter Name="iDoctorId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FacilityCustomPaging">
+      <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="RecordCount" Mode="InOut" Type="Int32" />
+      <Parameter Name="OrderBy" Mode="In" Type="String" />
+      <Parameter Name="OrderByDirection" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FacilityDoctorAdd">
+      <Parameter Name="iDoctorId" Mode="In" Type="Int32" />
+      <Parameter Name="iFacilityId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FacilityDoctorDelete">
+      <Parameter Name="iDoctorId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FacilityDoctorSearchById" ReturnType="Collection(MedicalDBModel.FacilityDoctorSearchById_Result)">
+      <Parameter Name="iDoctorId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FacilityMasterAdd">
+      <Parameter Name="vFacilityName" Mode="In" Type="String" />
+      <Parameter Name="vFStreetAdress" Mode="In" Type="String" />
+      <Parameter Name="vFAdressLine2" Mode="In" Type="String" />
+      <Parameter Name="vFCity" Mode="In" Type="String" />
+      <Parameter Name="iFStateID" Mode="In" Type="Int32" />
+      <Parameter Name="iFCountryID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FacilityMasterDeleteById">
+      <Parameter Name="iFacilityAutoId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FacilityMasterGetAll" ReturnType="Collection(MedicalDBModel.FacilityMasterGetAll_Result)" />
+    <FunctionImport Name="FacilityMasterSearchById" ReturnType="Collection(MedicalDBModel.FacilityMasterSearchById_Result)">
+      <Parameter Name="iFacilityAutoId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FacilityMasterSearchByName" ReturnType="Collection(MedicalDBModel.FacilityMasterSearchByName_Result)">
+      <Parameter Name="vFacilityName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FacilityMasterUpdate">
+      <Parameter Name="iFacilityAutoId" Mode="In" Type="Int32" />
+      <Parameter Name="vFacilityName" Mode="In" Type="String" />
+      <Parameter Name="vFStreetAdress" Mode="In" Type="String" />
+      <Parameter Name="vFAdressLine2" Mode="In" Type="String" />
+      <Parameter Name="vFCity" Mode="In" Type="String" />
+      <Parameter Name="iFCountryID" Mode="In" Type="Int32" />
+      <Parameter Name="iFStateID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PatientPhotoPicUpdate" ReturnType="Collection(String)">
+      <Parameter Name="iPersonAutoId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PersonLinqGetAll" ReturnType="Collection(MedicalDBModel.PersonLinqGetAll_Result)" />
+    <FunctionImport Name="PersonMasterAdd">
+      <Parameter Name="vPersonLName" Mode="In" Type="String" />
+      <Parameter Name="vPersonFName" Mode="In" Type="String" />
+      <Parameter Name="bGender" Mode="In" Type="Boolean" />
+      <Parameter Name="dbDateofBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="vEmergencyContactFName" Mode="In" Type="String" />
+      <Parameter Name="vEmergencyContactLName" Mode="In" Type="String" />
+      <Parameter Name="vRelationship" Mode="In" Type="String" />
+      <Parameter Name="vStreetAddress" Mode="In" Type="String" />
+      <Parameter Name="vAddressLine2" Mode="In" Type="String" />
+      <Parameter Name="vCity" Mode="In" Type="String" />
+      <Parameter Name="vStateID" Mode="In" Type="String" />
+      <Parameter Name="vPostalCode" Mode="In" Type="String" />
+      <Parameter Name="iCountryID" Mode="In" Type="Int32" />
+      <Parameter Name="vHomePhone" Mode="In" Type="String" />
+      <Parameter Name="vWorkPhone" Mode="In" Type="String" />
+      <Parameter Name="vHospitalPreferences" Mode="In" Type="String" />
+      <Parameter Name="vInsuranceCompany" Mode="In" Type="String" />
+      <Parameter Name="vPolicyNumber" Mode="In" Type="String" />
+      <Parameter Name="vPhysicanName" Mode="In" Type="String" />
+      <Parameter Name="vHospitalPhoneNo" Mode="In" Type="String" />
+      <Parameter Name="vAllergies_SpecialHealthConsiderations" Mode="In" Type="String" />
+      <Parameter Name="vProfilePhotoPath" Mode="In" Type="String" />
+      <Parameter Name="vUserName" Mode="In" Type="String" />
+      <Parameter Name="vPassWord" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PersonMasterDeleteById">
+      <Parameter Name="iPersonAutoID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PersonMasterExporttoExcel" ReturnType="Collection(MedicalDBModel.PersonMasterExporttoExcel_Result)" />
+    <FunctionImport Name="PersonMasterGetAll" ReturnType="Collection(MedicalDBModel.PersonMasterGetAll_Result)" />
+    <FunctionImport Name="PersonMasterGetById" ReturnType="Collection(MedicalDBModel.PersonMasterGetById_Result)">
+      <Parameter Name="iPersonAutoId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PersonMasterLogin" ReturnType="Collection(MedicalDBModel.PersonMasterLogin_Result)">
+      <Parameter Name="vUserName" Mode="In" Type="String" />
+      <Parameter Name="vPassWord" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PersonMasterSearchByName" ReturnType="Collection(MedicalDBModel.PersonMasterSearchByName_Result)">
+      <Parameter Name="vPersonLName" Mode="In" Type="String" />
+      <Parameter Name="vPersonFName" Mode="In" Type="String" />
+      <Parameter Name="vPolicyNumber" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PersonMasterUpdate">
+      <Parameter Name="iPersonAutoID" Mode="In" Type="Int32" />
+      <Parameter Name="vPersonLName" Mode="In" Type="String" />
+      <Parameter Name="vPersonFName" Mode="In" Type="String" />
+      <Parameter Name="bGender" Mode="In" Type="Boolean" />
+      <Parameter Name="dbDateofBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="vEmergencyContactFName" Mode="In" Type="String" />
+      <Parameter Name="vEmergencyContactLName" Mode="In" Type="String" />
+      <Parameter Name="vRelationship" Mode="In" Type="String" />
+      <Parameter Name="vStreetAddress" Mode="In" Type="String" />
+      <Parameter Name="vAddressLine2" Mode="In" Type="String" />
+      <Parameter Name="vCity" Mode="In" Type="String" />
+      <Parameter Name="vStateID" Mode="In" Type="String" />
+      <Parameter Name="vPostalCode" Mode="In" Type="String" />
+      <Parameter Name="iCountryID" Mode="In" Type="Int32" />
+      <Parameter Name="vHomePhone" Mode="In" Type="String" />
+      <Parameter Name="vWorkPhone" Mode="In" Type="String" />
+      <Parameter Name="vHospitalPreferences" Mode="In" Type="String" />
+      <Parameter Name="vInsuranceCompany" Mode="In" Type="String" />
+      <Parameter Name="vPolicyNumber" Mode="In" Type="String" />
+      <Parameter Name="vPhysicanName" Mode="In" Type="String" />
+      <Parameter Name="vHospitalPhoneNo" Mode="In" Type="String" />
+      <Parameter Name="vAllergies_SpecialHealthConsiderations" Mode="In" Type="String" />
+      <Parameter Name="vProfilePhotoPath" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="DepartmentMasterAutoCompleteByDeptName_Result">
+    <Property Type="Int32" Name="DepartmentAutoId" Nullable="false" />
+    <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="DepartmentMasterGetAll_Result">
+    <Property Type="Int32" Name="DepartmentAutoId" Nullable="false" />
+    <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="DepartmentMasterGetById_Result">
+    <Property Type="Int32" Name="DepartmentAutoId" Nullable="false" />
+    <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="DepartmentMasterGetByName_Result">
+    <Property Type="Int32" Name="DepartmentAutoId" Nullable="false" />
+    <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="DoctorMasterGetAll_Result">
+    <Property Type="Int32" Name="DoctorAutoId" Nullable="false" />
+    <Property Type="String" Name="DoctorLName" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="DoctorFName" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="DoctorName" Nullable="true" MaxLength="52" />
+    <Property Type="String" Name="DoctorNPI" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DoctorStreetAddress" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DoctorAddressLine2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DoctorCity" Nullable="true" MaxLength="25" />
+    <Property Type="Int32" Name="DoctorState" Nullable="true" />
+    <Property Type="Int32" Name="DoctorCountry" Nullable="true" />
+    <Property Type="String" Name="DoctorZipCode" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="DoctorWorkPhone" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DoctorHomePhone" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DoctorMobilePhone" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DoctorEmail" Nullable="true" MaxLength="25" />
+  </ComplexType>
+  <ComplexType Name="DoctorMasterSearchById_Result">
+    <Property Type="Int32" Name="DoctorAutoId" Nullable="false" />
+    <Property Type="String" Name="DoctorLName" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="DoctorFName" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="DoctorNPI" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DoctorStreetAddress" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DoctorAddressLine2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DoctorCity" Nullable="true" MaxLength="25" />
+    <Property Type="Int32" Name="DoctorState" Nullable="true" />
+    <Property Type="Int32" Name="DoctorCountry" Nullable="true" />
+    <Property Type="String" Name="DoctorZipCode" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="DoctorWorkPhone" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DoctorHomePhone" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DoctorMobilePhone" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DoctorEmail" Nullable="true" MaxLength="25" />
+  </ComplexType>
+  <ComplexType Name="DoctorMasterSearchByName_Result">
+    <Property Type="Int32" Name="DoctorAutoId" Nullable="false" />
+    <Property Type="String" Name="DoctorName" Nullable="true" MaxLength="52" />
+    <Property Type="String" Name="DoctorNPI" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DoctorStreetAddress" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DoctorAddressLine2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DoctorCity" Nullable="true" MaxLength="25" />
+    <Property Type="Int32" Name="DoctorState" Nullable="true" />
+    <Property Type="Int32" Name="DoctorCountry" Nullable="true" />
+    <Property Type="String" Name="DoctorZipCode" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="DoctorWorkPhone" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DoctorHomePhone" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DoctorMobilePhone" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DoctorEmail" Nullable="true" MaxLength="25" />
+  </ComplexType>
+  <ComplexType Name="FacilityDoctorSearchById_Result">
+    <Property Type="Int32" Name="DoctorId" Nullable="false" />
+    <Property Type="Int32" Name="FacilityId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="FacilityMasterGetAll_Result">
+    <Property Type="Int32" Name="FacilityAutoId" Nullable="false" />
+    <Property Type="String" Name="FacilityName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FStreetAdress" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FAdressLine2" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FCity" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="FCountryID" Nullable="true" />
+    <Property Type="Int32" Name="FStateID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FacilityMasterSearchById_Result">
+    <Property Type="Int32" Name="FacilityAutoId" Nullable="false" />
+    <Property Type="String" Name="FacilityName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FStreetAdress" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FAdressLine2" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FCity" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="FCountryID" Nullable="true" />
+    <Property Type="Int32" Name="FStateID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FacilityMasterSearchByName_Result">
+    <Property Type="Int32" Name="FacilityAutoId" Nullable="false" />
+    <Property Type="String" Name="FacilityName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FStreetAdress" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FAdressLine2" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FCity" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="FCountryID" Nullable="true" />
+    <Property Type="Int32" Name="FStateID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="PersonLinqGetAll_Result">
+    <Property Type="Int32" Name="PersonAutoID" Nullable="false" />
+    <Property Type="String" Name="PersonName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="PersonAge" Nullable="true" />
+    <Property Type="String" Name="PersonJob" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PersonMasterExporttoExcel_Result">
+    <Property Type="String" Name="PatientName" Nullable="true" MaxLength="52" />
+    <Property Type="String" Name="EmergencyContactPerson" Nullable="true" MaxLength="52" />
+    <Property Type="String" Name="InsuranceCompany" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="PolicyNumber" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="PersonMasterGetAll_Result">
+    <Property Type="Int32" Name="PersonAutoId" Nullable="false" />
+    <Property Type="String" Name="PatientName" Nullable="true" MaxLength="52" />
+    <Property Type="String" Name="EmergencyContactPerson" Nullable="true" MaxLength="52" />
+    <Property Type="String" Name="InsuranceCompany" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="PolicyNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ProfilePhotoPath" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="PersonMasterGetById_Result">
+    <Property Type="Int32" Name="PersonAutoID" Nullable="false" />
+    <Property Type="String" Name="PersonLName" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="PersonFName" Nullable="true" MaxLength="25" />
+    <Property Type="Boolean" Name="Gender" Nullable="true" />
+    <Property Type="DateTime" Name="DateofBirth" Nullable="true" />
+    <Property Type="String" Name="EmergencyContactFName" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="EmergencyContactLName" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="Relationship" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="StreetAddress" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AddressLine2" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="StateID" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="5" />
+    <Property Type="Int32" Name="CountryID" Nullable="true" />
+    <Property Type="String" Name="HomePhone" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="WorkPhone" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="HospitalPreferences" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="InsuranceCompany" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="PolicyNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PhysicanName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HospitalPhoneNo" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Allergies_SpecialHealthConsiderations" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ProfilePhotoPath" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="PersonMasterLogin_Result">
+    <Property Type="Int32" Name="PersonAutoId" Nullable="false" />
+    <Property Type="String" Name="PersonLName" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="PersonFName" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="PassWord" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="PersonMasterSearchByName_Result">
+    <Property Type="Int32" Name="PersonAutoId" Nullable="false" />
+    <Property Type="String" Name="PatientName" Nullable="true" MaxLength="52" />
+    <Property Type="String" Name="EmergencyContactPerson" Nullable="true" MaxLength="52" />
+    <Property Type="String" Name="InsuranceCompany" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="PolicyNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ProfilePhotoPath" Nullable="true" MaxLength="250" />
+  </ComplexType>
+</Schema>
